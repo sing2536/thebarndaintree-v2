@@ -14,4 +14,12 @@ app.use(createPinia());
 app.use(router);
 app.use(Vue3TouchEvents);
 
+app.directive('scrollFade', {
+    mounted: (el) => {
+        document.getElementById('app').addEventListener("scroll", () => {
+            console.log('r')
+        });
+    }
+})
+
 app.mount("#app");

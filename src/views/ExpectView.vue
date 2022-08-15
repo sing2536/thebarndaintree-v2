@@ -17,7 +17,7 @@ function openUrl(url) {
 
   <div class="section image-1">
     <div class="content bottom">
-      <div class="content-container ">
+      <div class="content-container" v-scroll-fade>
         <h2>What to Expect</h2>
       </div>
     </div>
@@ -44,7 +44,7 @@ function openUrl(url) {
    <div class="section image-2">
       <div class="content center">
         <div class="content-container left">
-          <div class="left">
+          <div class="left" v-scroll-fade>
             <h2>Local Tourism</h2>
             <p>
               There is plenty of activities and tours Daintree has to offer, listed below are some of the sites you can visit to book tours and find all the information you need to help plan your holiday. We also keep tour brochures at The Barn which also contains a map of the area listing all the local stores, restaurants etc.
@@ -62,7 +62,7 @@ function openUrl(url) {
     <div class="section image-3">
       <div class="content center">
         <div class="content-container right">
-          <div class="right">
+          <div class="right" v-scroll-fade>
             <h2>Getting Here</h2>
             <p>
               The Barn is located in the Daintree Rainforest at Cow Bay. To get here from cairns is approximately 120km which is about a 2 hour drive. The map below shows the route from cairns to the location of the house.
@@ -82,7 +82,7 @@ function openUrl(url) {
 
     <div class="section alt-color" style="height: unset">
       <div class="content">
-        <div class="content-container center">
+        <div class="content-container center" v-scroll-fade>
           <h2>Conviced yet?</h2>
           <button @click="goToPage('booking')" class="alt-color">Enquire Now</button>
         </div>

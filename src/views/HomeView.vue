@@ -104,7 +104,7 @@ function goToPage(p) {
   <div class="section alt-color" style="height: unset">
     <div class="content">
       <div class="content-container">
-        <h2 v-scroll-fade>Testimonials</h2>
+        <h2>Testimonials</h2>
         <vueper-slides :visible-slides="3" :slide-multiple="3" :breakpoints="reviewBreakpoints" class="no-shadow" fixed-height="460px" autoplay>
           <vueper-slide v-for="(review, i) in reviews" :key="i">
             <template #content>

@@ -41,7 +41,7 @@ function imagePrev() {
 
   <div class="section image-1">
     <div class="content bottom">
-      <div class="content-container">
+      <div class="content-container" v-scroll-fade>
         <h2>Gallery</h2>
       </div>
     </div>

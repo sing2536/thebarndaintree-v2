@@ -1,0 +1,83 @@
+<script setup>
+import { RouterLink, RouterView } from "vue-router";
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+</script>
+
+<template>
+  <div class="footer">
+    <div class="container">
+
+        <div class="logo">The Barn Daintree</div>
+
+        <nav>
+            <div class="title">Find us on</div>
+            <a href="https://www.airbnb.com.au/rooms/3604920" target="_blank">Airbnb</a>
+            <a href="https://www.stayz.com.au/holiday-rental/p9153872" target="_blank">Stayz</a>
+            <a href="https://www.tripadvisor.com.au/VacationRentalReview-g499650-d6850985-The_Barn_Daintree_holiday_house-Daintree_Daintree_Region_Queensland.html" target="_blank">TripAdvisor</a>
+            <a href="https://www.booking.com/hotel/au/the-barn-daintree-holiday-house.en-gb.html" target="_blank">Booking.com</a>
+        </nav>
+
+        <nav>
+            <div class="title">Menu</div>
+            <RouterLink v-for="(route, i) in router.getRoutes()" :to="route.path" :key="i">{{route.name}}</RouterLink>
+        </nav>
+
+    </div>
+  </div>
+</template>
+
+<style lang="less" scoped>
+.footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: black;
+    padding: 60px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+    flex: 1;
+    max-width: var(--page-max-width);
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    align-self: center;
+    margin-right: 100px;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--text);
+
+    .title {
+        color: var(--text2);
+    }
+
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 1em;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+@media (max-width: 680px) {
+    .logo {
+        display: none;
+    }
+}
+</style>

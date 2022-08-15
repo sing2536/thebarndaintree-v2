@@ -1,0 +1,84 @@
+@import './theme.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+body {
+  width: 100%;
+  color: var(--text);
+  background: black;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: auto;
+}
+
+a:visited {
+  color: inherit
+}
+
+h2 {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+p, li {
+  font-size: 1.3em;
+  line-height: 1.8em;
+  font-weight: 500;
+}
+
+ul {
+  list-style-position: inside
+}
+
+button {
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--text);
+  padding: 12px 28px;
+  text-transform: uppercase;
+  border: 2px solid var(--text);
+  background: transparent;
+
+  &:hover {
+    background: var(--text);
+    color: var(--text-alt);
+    cursor: pointer;
+  }
+
+  &.alt-color {
+    color: var(--text-alt);
+    border-color: var(--text-alt);
+
+    &:hover {
+      background: var(--text-alt);
+      color: var(--text);
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  body {
+    font-size: 12px;
+  }
+}

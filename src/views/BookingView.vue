@@ -19,7 +19,7 @@ function handleData(a){
 }
 
 function cleanDate(a){
-  date = a;
+  let date = a;
   a = date.substring(0,4);
   b = date.substring(5,7);      
   c = date.substring(8,10);

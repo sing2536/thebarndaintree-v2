@@ -5,7 +5,7 @@ export default {
                 const bounding = el.getBoundingClientRect()
         
                 const isVisible = ()=>{
-                    if (bounding.top <= document.getElementById('app').scrollTop+window.innerHeight-300) {
+                    if (bounding.top <= document.getElementById('app').scrollTop+window.innerHeight-200) {
                         return true
                     }
                     return false

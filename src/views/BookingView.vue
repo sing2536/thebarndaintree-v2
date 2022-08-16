@@ -5,7 +5,7 @@ import '@/assets/calendar/bootstrap-year-calendar.js'
 import axios from 'axios'
 
 function getCalendar() {
-  axios('/portal/public/api/extcalendar').then((r)=> handleData(r.data))
+  axios('/portal/public/api/extcalendar').then((r)=> handleData(r.data[0]))
 }
 
 function handleData(a){
@@ -32,7 +32,7 @@ onMounted(()=>{
 
 <template>
 
-  <div class="section image-1">
+  <div class="section header image-1">
     <div class="content bottom">
       <div class="content-container" v-scroll-fade>
         <h2>Booking</h2>
@@ -85,7 +85,6 @@ h3 {
 }
 
 .image-1 {
-  height: 500px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)) , url('@/assets/images/8.jpg');
 }
 </style>

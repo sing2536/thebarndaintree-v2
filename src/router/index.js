@@ -24,6 +24,10 @@ const router = createRouter({
       name: "booking",
       component: () => import("../views/BookingView.vue"),
     },
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/'
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     return { top: 0 }

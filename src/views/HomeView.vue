@@ -1,18 +1,20 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import { reactive } from 'vue'
-import { VueperSlides, VueperSlide } from 'vueperslides'
-import 'vueperslides/dist/vueperslides.css'
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Navigation, Pagination } from 'swiper';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination'
+import 'swiper/css'
 
+const swiperModules = reactive([Navigation, Pagination])
 const router = useRouter()
 const reviewBreakpoints = reactive({
-  1200: {
-    visibleSlides: 2,
-    slideMultiple: 2,
-  },
   800: {
-    visibleSlides: 1,
-    slideMultiple: 1,
+    slidesPerView: 2,
+  },
+  1200: {
+    slidesPerView: 3,
   },
 })
 const reviews = reactive([
@@ -48,6 +50,13 @@ const reviews = reactive([
   },
 ])
 
+const onSwiper = (swiper) => {
+  console.log(swiper);
+};
+const onSlideChange = () => {
+  console.log('slide change');
+};
+
 function goToPage(p) {
   router.push(p)
 }
@@ -55,6 +64,30 @@ function goToPage(p) {
 </script>
 
 <template>
+
+  <div class="section" style="backgroundColor: white">
+    <div class="content">
+        <swiper
+          :modules="swiperModules"
+          navigation
+          :pagination="{ clickable: true }"
+          :slides-per-view="1"
+          :space-between="50"
+          :breakpoints="reviewBreakpoints"
+          @swiper="onSwiper"
+          @slideChange="onSlideChange"
+        >
+          <swiper-slide v-for="(review, i) in reviews" class="slide-container" :key="i">
+            <div class="content">
+              <div class="quote">{{review.quote}}</div>
+              <div class="info">
+                <div class="source">{{review.source}}, {{review.date}}</div>
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper>
+    </div>
+  </div>
 
   <div class="section image-1">
     <div class="content bottom">
@@ -105,20 +138,7 @@ function goToPage(p) {
     <div class="content">
       <div class="content-container">
         <h2>Testimonials</h2>
-        <vueper-slides :visible-slides="3" :slide-multiple="3" :breakpoints="reviewBreakpoints" class="no-shadow" fixed-height="460px" autoplay>
-          <vueper-slide v-for="(review, i) in reviews" :key="i">
-            <template #content>
-              <div class="slide-container">
-                <div class="content">
-                  <div class="quote">{{review.quote}}</div>
-                  <div class="info">
-                    <div class="source">{{review.source}}, {{review.date}}</div>
-                  </div>
-                </div>
-              </div>
-            </template>
-          </vueper-slide>
-        </vueper-slides>
+        
       </div>
     </div>
   </div>
@@ -128,11 +148,17 @@ function goToPage(p) {
 <style lang="less" scoped>
 @import '@/assets/section.less';
 
+.swiper {
+  width: 100%;
+  height: 460px;
+  max-width: var(--page-max-width);
+  padding: 0 50px;
+}
+
 .slide-container {
   display: flex;
   color: black;
   height: 100%;
-  margin: 0 40px;
 
   .content {
     display: flex;

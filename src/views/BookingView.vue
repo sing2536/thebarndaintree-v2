@@ -10,17 +10,17 @@ function getCalendar() {
 
 function handleData(a){
   for (var i = 0; i < a.length; i++) {
-        a[i].checkIn = cleanDate(a[i].checkIn);
-        a[i].checkOut = cleanDate(a[i].checkOut);
-        a[i].color = "rgb(255, 130, 130)";
+    a[i].checkIn = cleanDate(a[i].checkIn);
+    a[i].checkOut = cleanDate(a[i].checkOut);
+    a[i].color = "rgb(255, 130, 130)";
   };
 
   $('.calendar').calendar({startYear: (new Date().getFullYear()), alwaysHalfDay: true, style: 'background'}).setDataSource(a)
 }
 
 function cleanDate(a){
-  let date = a;
-  return new Date(date.substring(0,4), date.substring(5,7), date.substring(8,10));
+  console.log(a)
+  return new Date(a.substring(0,4), a.substring(5,7), a.substring(8,10));
 }
 
 onMounted(()=>{

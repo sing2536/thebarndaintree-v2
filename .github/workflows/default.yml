@@ -27,3 +27,4 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: './v2/'
+          local-dir: 'dist/'

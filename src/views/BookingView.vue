@@ -9,7 +9,6 @@ function getCalendar() {
 }
 
 function handleData(a){
-  console.log('handle', a)
   for (var i = 0; i < a.length; i++) {
     a[i].checkIn = cleanDate(a[i].checkIn);
     a[i].checkOut = cleanDate(a[i].checkOut);
@@ -20,7 +19,6 @@ function handleData(a){
 }
 
 function cleanDate(a){
-  console.log(a)
   return new Date(a.substring(0,4), a.substring(5,7), a.substring(8,10));
 }
 
@@ -67,7 +65,7 @@ onMounted(()=>{
         <h2>Calendar</h2>
         <p>
           Please check our availability using the calendar below.<br />
-          *Red blocks are booked dates.
+          *Red blocks are unavailable.
         </p>
         <br />
         <div class="calendar"></div>

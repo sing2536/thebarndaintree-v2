@@ -13,7 +13,7 @@ export default {
         
                 const scrollHandler = ()=>{
                     if (isVisible()) {
-                        el.style.transition = 'opacity 1s, translate 1s'
+                        el.style.transition = 'opacity 1s, translate 0.75s'
                         el.style.opacity = 1
                         el.style.translate = '0'
                         document.getElementById('app').removeEventListener("scroll", scrollHandler);
@@ -21,7 +21,7 @@ export default {
                 }
         
                 el.style.opacity = 0
-                el.style.translate = '0 50px'
+                el.style.translate = '0 30px'
         
                 setTimeout(() => {
                     if (isVisible()) return scrollHandler()

@@ -20,11 +20,7 @@ function handleData(a){
 
 function cleanDate(a){
   let date = a;
-  a = date.substring(0,4);
-  b = date.substring(5,7);      
-  c = date.substring(8,10);
-  b--;
-  return new Date(a, b, c);
+  return new Date(date.substring(0,4), date.substring(5,7), date.substring(8,10));
 }
 
 onMounted(()=>{

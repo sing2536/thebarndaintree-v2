@@ -5,11 +5,10 @@ import '@/assets/calendar/bootstrap-year-calendar.js'
 import axios from 'axios'
 
 function getCalendar() {
-  axios('https://thebarndaintree.com/portal/public/api/extcalendar').then((r)=> handleData(r))
+  axios('/portal/public/api/extcalendar').then((r)=> handleData(r.data))
 }
 
 function handleData(a){
-  console.log(a)
   for (var i = 0; i < a.length; i++) {
         a[i].checkIn = cleanDate(a[i].checkIn);
         a[i].checkOut = cleanDate(a[i].checkOut);

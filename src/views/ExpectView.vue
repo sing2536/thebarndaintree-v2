@@ -27,7 +27,7 @@ function openUrl(url) {
     <div class="content">
       <div class="content-container">
         <p>
-          The Barn is a self-reliant house in electrical power and water supply, the house is purely powered by solar panels. Because of this one does have to be efficient with power usage, we do advice you to use any equipment that uses high consumption of power such as the washing machine and dish washer, during the day when the sun is out, it is also advised to turn things such as lights and fans off if not in use. As long as power is not wasted The Barn is easily capable of powering the house through the day and night.
+          The Barn is a self-reliant house in electrical power and water supply, the house is purely powered by solar panels. Because of this one does have to be efficient with power usage, we do advice you to use any equipment that uses high consumption of power such as the washing machine and dish washer, during the day when the sun is out, it is also advised to turn things such as lights and fans off if not in use. As long as power is not wasted, The Barn is easily capable of powering the house through the day and night.
           <br><br>
           The Barn does have a landline, however phone signal and internet is currently not available, you can though easily get Wi-Fi at local restaurants for a very small fee and phone signals with 3G can be found at the Alexandra range look out which is about a 10 minute drive.
           <br><br>
@@ -65,7 +65,7 @@ function openUrl(url) {
           <div class="right" v-scroll-fade>
             <h2>Getting Here</h2>
             <p>
-              The Barn is located in the Daintree Rainforest at Cow Bay. To get here from cairns is approximately 120km which is about a 2 hour drive. The map below shows the route from cairns to the location of the house.
+              The Barn is located in the Daintree Rainforest at Cow Bay. To get here from Cairns is approximately 120km, or 2 hour drive. The map below shows the route from cairns to the location of the house.
               <br><br>
               You will be required to cross the Daintree River using the car ferry, which includes a fee each time you use it, and we also provide you with a direction guide book to help find your way to The Barn, as well as ferry tickets which can be mailed to you free of charge. 
               <br><br>

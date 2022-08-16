@@ -1,3 +1,39 @@
+<script setup>
+import { onMounted } from 'vue'
+import '@/assets/jquery.min.js'
+import '@/assets/calendar/bootstrap-year-calendar.js'
+import axios from 'axios'
+
+function getCalendar() {
+  axios('https://thebarndaintree.com/portal/public/api/extcalendar').then((r)=> handleData(r))
+}
+
+function handleData(a){
+  console.log(a)
+  for (var i = 0; i < a.length; i++) {
+        a[i].checkIn = cleanDate(a[i].checkIn);
+        a[i].checkOut = cleanDate(a[i].checkOut);
+        a[i].color = "rgb(255, 130, 130)";
+  };
+
+  $('.calendar').calendar({startYear: (new Date().getFullYear()), alwaysHalfDay: true, style: 'background'}).setDataSource(a)
+}
+
+function cleanDate(a){
+  date = a;
+  a = date.substring(0,4);
+  b = date.substring(5,7);      
+  c = date.substring(8,10);
+  b--;
+  return new Date(a, b, c);
+}
+
+onMounted(()=>{
+  $('.calendar').calendar()
+  getCalendar()
+})
+</script>
+
 <template>
 
   <div class="section image-1">
@@ -11,17 +47,34 @@
   <div class="section alt-color" style="height: unset">
     <div class="content">
       <div class="content-container">
+        <h3>Contact</h3>
         <p>
-          The Barn is a self-reliant house in electrical power and water supply, the house is purely powered by solar panels. Because of this one does have to be efficient with power usage, we do advice you to use any equipment that uses high consumption of power such as the washing machine and dish washer, during the day when the sun is out, it is also advised to turn things such as lights and fans off if not in use. As long as power is not wasted The Barn is easily capable of powering the house through the day and night.
-          <br><br>
-          The Barn does have a landline, however phone signal and internet is currently not available, you can though easily get Wi-Fi at local restaurants for a very small fee and phone signals with 3G can be found at the Alexandra range look out which is about a 10 minute drive.
-          <br><br>
-          One thing to also note is that The Barn is designed to be opened to nature and because of its solar passive design this house naturally keeps itself cool at all times, therefor there are no flyscreens or air conditioning.
-          <br><br>
-          The Barn is also a place where you won't forgo a bit of luxury, with three en suite bedrooms a fully equipped kitchen satellite TV, stereo system, billiard table, BBQ and a swimming pool, this three story pole house with 30 ft ceilings and glass walls from the ground up on 3 sides will truly take your breath away.
-          <br><br>
-          There're 3 bedrooms, one on the top floor has a king size bed and two on the ground floor with queen size beds. We can accommodate up to 8 guests by setting up extra beds around the house and/or in the bedrooms and we are willing to accommodate more guest so please feel free to contact us.
+          To make an enquiry or booking, please contact us using below details.<br />
         </p>
+        <p>
+          Mobile: 0459 499 192<br />
+          Phone: (07) 40341266<br />
+          Email: thebarndaintree@hotmail.com<br /><br />
+        </p>
+        <h3>Prices per night</h3>
+        <ul>
+          <li>Base rate for 2 guests is $480</li>
+          <li>Extra 95$ for adults and $70 for children, per person, per night</li>
+          <li>Give us an enquiry, we try to give out discounts whenever we can</li>
+        </ul>
+        <br /><br />
+        <h3>Payment method</h3>
+        <ul>
+          <li>Direct Bank Transfer</li>
+        </ul>
+        <br /><br />
+        <h2>Calendar</h2>
+        <p>
+          Please check our availability using the calendar below.<br />
+          *Red blocks are booked dates.
+        </p>
+        <br />
+        <div class="calendar"></div>
       </div>
     </div>
   </div>
@@ -31,8 +84,16 @@
 <style lang="less" scoped>
 @import '@/assets/section.less';
 
+h3 {
+  padding-bottom: 20px;
+}
+
 .image-1 {
   height: 500px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)) , url('@/assets/images/8.jpg');
 }
+</style>
+
+<style>
+@import '@/assets/calendar/bootstrap-year-calendar.css';
 </style>

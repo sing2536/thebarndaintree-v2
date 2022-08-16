@@ -73,7 +73,7 @@ function goToPage(p) {
       <div class="content-container right">
         <div class="right" v-scroll-fade>
           <h2>The Barn</h2>
-          <p>A wonderful place for your next holiday in the Daintree rainforest. The Barn is situated on the side of the mountain bordering the world heritage national park, boasting unending views of the coral sea with the rainforest meeting reef the right in front of you, this is truly a place to unwind relax and forget about things for a while.</p>
+          <p>A wonderful place for your next holiday in the Daintree rainforest. The Barn is situated on the side of the mountain bordering the world heritage national park, boasting unending views of the coral sea with the rainforest meeting the reef right in front of you, this is truly a place to unwind, relax, and forget about things for a while.</p>
           <div>
             <button @click="goToPage('expect')">What to Expect</button>
           </div>
@@ -87,7 +87,7 @@ function goToPage(p) {
       <div class="content-container" v-scroll-fade>
         <h2>Main Features</h2>
         <ul>
-          <li>3 Ensuite bedrooms, 1 king and 2 queens (extra beds available)</li>
+          <li>3 Ensuite bedrooms, 1 king and 2 queens (extra beds available on request)</li>
           <li>Accommodate up to 8 guests (for more please contact us)</li>
           <li>Fantastic view of the ocean and rainforest across all 3 floors</li>
           <li>10 minutes walk or 2 minutes drive to Cow Bay beach</li>

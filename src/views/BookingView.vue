@@ -9,6 +9,7 @@ function getCalendar() {
 }
 
 function handleData(a){
+  console.log('handle', a)
   for (var i = 0; i < a.length; i++) {
     a[i].checkIn = cleanDate(a[i].checkIn);
     a[i].checkOut = cleanDate(a[i].checkOut);

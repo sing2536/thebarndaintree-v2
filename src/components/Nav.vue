@@ -163,7 +163,7 @@ nav {
 
 .sidebar-enter-from,
 .sidebar-leave-to {
-    transform: translate(200px, 0);
+    transform: translate(250px, 0);
 }
 
 .fade-enter-active,

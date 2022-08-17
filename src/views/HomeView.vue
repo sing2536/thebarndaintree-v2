@@ -153,6 +153,7 @@ function goToPage(p) {
     align-self: center;
 
     .quote {
+      font-size: 1.2em;
       font-weight: 500;
       line-height: 26px;
     }
@@ -163,7 +164,7 @@ function goToPage(p) {
 
       .source {
         color: var(--text2);
-        font-size: 0.8em;
+        font-size: 1em;
         font-style: italic;
       }
     }

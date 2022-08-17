@@ -50,13 +50,6 @@ const reviews = reactive([
   },
 ])
 
-const onSwiper = (swiper) => {
-  console.log(swiper);
-};
-const onSlideChange = () => {
-  console.log('slide change');
-};
-
 function goToPage(p) {
   router.push(p)
 }
@@ -120,8 +113,6 @@ function goToPage(p) {
             :slides-per-view="1"
             :space-between="50"
             :breakpoints="reviewBreakpoints"
-            @swiper="onSwiper"
-            @slideChange="onSlideChange"
           >
               <swiper-slide v-for="(review, i) in reviews" class="slide-container" :key="i">
                 <div class="slide-content">

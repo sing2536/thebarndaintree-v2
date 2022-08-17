@@ -3,9 +3,15 @@ import { reactive, ref } from 'vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faXmark, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Navigation, Pagination } from 'swiper';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination'
+import 'swiper/css'
 
 library.add(faXmark, faChevronLeft, faChevronRight)
 
+const swiperModules = reactive([Navigation, Pagination])
 const images = reactive([
   {
     src: 'https://thebarndaintree.com/gallery/1.jpg',
@@ -47,7 +53,26 @@ function imagePrev() {
     </div>
   </div>
 
-  <div class="section alt-color" style="height: unset">
+  <div class="section">
+    <div class="content">
+      
+    </div>
+  </div>
+
+  <div class="view-image">
+    <swiper
+      :modules="swiperModules"
+      navigation
+      :pagination="{ clickable: true }"
+      :slides-per-view="1"
+    >
+      <swiper-slide v-for="(image, i) in images" :key="i">
+        <img :src="image.src" />
+      </swiper-slide>
+    </swiper>
+  </div>
+
+  <!-- <div class="section alt-color" style="height: unset">
     <div class="content">
       <div class="content-container">
         <div class="image-container">
@@ -55,9 +80,9 @@ function imagePrev() {
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <div v-if="imageActive != null" class="image-viewer"  v-touch:swipe.left="imageNext" v-touch:swipe.right="imagePrev">
+  <!-- <div v-if="imageActive != null" class="image-viewer"  v-touch:swipe.left="imageNext" v-touch:swipe.right="imagePrev">
     <div class="header">
       <div>Photo {{imageActive+1}} of {{images.length}}</div>
       <div @click="imageActive = null" class="button"><font-awesome-icon icon="fa-solid fa-xmark" /></div>
@@ -69,12 +94,19 @@ function imagePrev() {
       <div @click="imagePrev()"  class="button"><font-awesome-icon icon="fa-solid fa-chevron-left" /></div>
       <div @click="imageNext()" class="button"><font-awesome-icon icon="fa-solid fa-chevron-right" /></div>
     </div>
-  </div>
+  </div> -->
 
 </template>
 
 <style lang="less" scoped>
 @import '@/assets/section.less';
+
+.view-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
 
 .image-viewer {
   position: fixed;

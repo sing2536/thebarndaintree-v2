@@ -65,30 +65,6 @@ function goToPage(p) {
 
 <template>
 
-  <div class="section" style="backgroundColor: white">
-    <div class="content">
-        <swiper
-          :modules="swiperModules"
-          navigation
-          :pagination="{ clickable: true }"
-          :slides-per-view="1"
-          :space-between="50"
-          :breakpoints="reviewBreakpoints"
-          @swiper="onSwiper"
-          @slideChange="onSlideChange"
-        >
-          <swiper-slide v-for="(review, i) in reviews" class="slide-container" :key="i">
-            <div class="content">
-              <div class="quote">{{review.quote}}</div>
-              <div class="info">
-                <div class="source">{{review.source}}, {{review.date}}</div>
-              </div>
-            </div>
-          </swiper-slide>
-        </swiper>
-    </div>
-  </div>
-
   <div class="section image-1">
     <div class="content bottom">
       <div class="content-container" v-scroll-fade>
@@ -135,11 +111,27 @@ function goToPage(p) {
   </div>
 
   <div class="section alt-color" style="height: unset">
-    <div class="content">
-      <div class="content-container">
-        <h2>Testimonials</h2>
-        
-      </div>
+    <div class="content column">
+          <h2>Testimonials</h2>
+          <swiper
+            :modules="swiperModules"
+            navigation
+            :pagination="{ clickable: true }"
+            :slides-per-view="1"
+            :space-between="50"
+            :breakpoints="reviewBreakpoints"
+            @swiper="onSwiper"
+            @slideChange="onSlideChange"
+          >
+              <swiper-slide v-for="(review, i) in reviews" class="slide-container" :key="i">
+                <div class="slide-content">
+                  <div class="quote">{{review.quote}}</div>
+                  <div class="info">
+                    <div class="source">{{review.source}}, {{review.date}}</div>
+                  </div>
+                </div>
+              </swiper-slide>
+          </swiper>
     </div>
   </div>
   
@@ -150,9 +142,9 @@ function goToPage(p) {
 
 .swiper {
   width: 100%;
-  height: 460px;
+  height: max-content;
   max-width: var(--page-max-width);
-  padding: 0 50px;
+  padding: 60px 50px;
 }
 
 .slide-container {
@@ -160,10 +152,11 @@ function goToPage(p) {
   color: black;
   height: 100%;
 
-  .content {
+  .slide-content {
     display: flex;
     text-align: center;
     flex-direction: column;
+    align-self: center;
 
     .quote {
       font-weight: 500;
@@ -199,6 +192,10 @@ function goToPage(p) {
   .content {
     align-items: flex-end!important;
     padding-bottom: 80px;
+
+    &.column {
+      align-items: center !important;
+    }
   }
 }
 </style>

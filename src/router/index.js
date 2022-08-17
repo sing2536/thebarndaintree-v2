@@ -35,6 +35,8 @@ const router = createRouter({
 router.beforeEach((to, from) => {
   const store = storeIndex()
   store.sideBarActive = false
+
+  document.querySelector('#app').scrollTop = 0
 })
 
 export default router;

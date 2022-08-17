@@ -80,7 +80,7 @@ function openUrl(url) {
       <iframe width="100%" height="100%" src="https://www.google.com/maps/embed?pb=!1m25!1m12!1m3!1d61292.71950465421!2d145.41741939861416!3d-16.230976996702545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m10!1i0!3e0!4m3!3m2!1d-16.8971862!2d145.7551918!4m3!3m2!1d-16.2339359!2d145.4629646!5e0!3m2!1sen!2sau!4v1406172636583" frameborder="0" style="border:0"></iframe>
     </div>
 
-    <div class="section alt-color" style="height: unset">
+    <div class="section no-height alt-color">
       <div class="content">
         <div class="content-container center" v-scroll-fade>
           <h2>Conviced yet?</h2>

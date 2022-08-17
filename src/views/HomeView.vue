@@ -61,7 +61,7 @@ function goToPage(p) {
   <div class="section image-1">
     <div class="content bottom">
       <div class="content-container" v-scroll-fade>
-        <h2>Welcome</h2>
+        <h2>Welcome,</h2>
         <h3>To your next holiday destination.</h3>
         <div>
           <button @click="goToPage('booking')">Enquire Now</button>
@@ -103,25 +103,24 @@ function goToPage(p) {
     </div>
   </div>
 
-  <div class="section alt-color" style="height: unset">
+  <div class="section no-height alt-color">
     <div class="content column">
           <h2>Testimonials</h2>
           <swiper
-            :modules="swiperModules"
-            navigation
-            :pagination="{ clickable: true }"
-            :slides-per-view="1"
-            :space-between="50"
-            :breakpoints="reviewBreakpoints"
-          >
-              <swiper-slide v-for="(review, i) in reviews" class="slide-container" :key="i">
-                <div class="slide-content">
-                  <div class="quote">{{review.quote}}</div>
-                  <div class="info">
-                    <div class="source">{{review.source}}, {{review.date}}</div>
-                  </div>
+          :modules="swiperModules"
+          navigation
+          :pagination="{ clickable: true }"
+          :slides-per-view="1"
+          :space-between="50"
+          :breakpoints="reviewBreakpoints">
+            <swiper-slide v-for="(review, i) in reviews" class="slide-container" :key="i">
+              <div class="slide-content">
+                <div class="quote">{{review.quote}}</div>
+                <div class="info">
+                  <div class="source">{{review.source}}, {{review.date}}</div>
                 </div>
-              </swiper-slide>
+              </div>
+            </swiper-slide>
           </swiper>
     </div>
   </div>
@@ -130,6 +129,10 @@ function goToPage(p) {
 
 <style lang="less" scoped>
 @import '@/assets/section.less';
+
+:root {
+  --swiper-theme-color: black;
+}
 
 .swiper {
   width: 100%;

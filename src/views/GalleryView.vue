@@ -30,17 +30,7 @@ const images = reactive([
     thumbnail: 'https://thebarndaintree.com/gallery/4thumb.jpg',
   },
 ])
-let imageActive = ref(null)
-
-function imageNext() {
-  if (imageActive.value >= images.length-1) return imageActive.value = 0
-  imageActive.value++
-}
-
-function imagePrev() {
-  if (imageActive.value < 1) return imageActive.value = images.length-1
-  imageActive.value--
-}
+const imageActive = ref(null)
 </script>
 
 <template>
@@ -53,26 +43,7 @@ function imagePrev() {
     </div>
   </div>
 
-  <div class="section">
-    <div class="content">
-      
-    </div>
-  </div>
-
-  <div class="view-image">
-    <swiper
-      :modules="swiperModules"
-      navigation
-      :pagination="{ clickable: true }"
-      :slides-per-view="1"
-    >
-      <swiper-slide v-for="(image, i) in images" :key="i">
-        <img :src="image.src" />
-      </swiper-slide>
-    </swiper>
-  </div>
-
-  <!-- <div class="section alt-color" style="height: unset">
+  <div class="section no-height alt-color">
     <div class="content">
       <div class="content-container">
         <div class="image-container">
@@ -80,26 +51,40 @@ function imagePrev() {
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
-  <!-- <div v-if="imageActive != null" class="image-viewer"  v-touch:swipe.left="imageNext" v-touch:swipe.right="imagePrev">
+  <div v-if="imageActive != null" class="image-viewer">
     <div class="header">
       <div>Photo {{imageActive+1}} of {{images.length}}</div>
       <div @click="imageActive = null" class="button"><font-awesome-icon icon="fa-solid fa-xmark" /></div>
     </div>
-    <div class="photo">
-      <img v-show="imageActive == i" v-for="(image, i) in images" :src="image.src" :key="i">
-    </div>
-    <div class="arrows">
-      <div @click="imagePrev()"  class="button"><font-awesome-icon icon="fa-solid fa-chevron-left" /></div>
-      <div @click="imageNext()" class="button"><font-awesome-icon icon="fa-solid fa-chevron-right" /></div>
-    </div>
-  </div> -->
+    <swiper
+      :modules="swiperModules"
+      navigation
+      :pagination="{ clickable: true }"
+      :slides-per-view="1"
+      :centeredSlides="true"
+    >
+      <swiper-slide v-for="(image, i) in images" :key="i">
+        <img :src="image.src" />
+      </swiper-slide>
+    </swiper>
+  </div>
 
 </template>
 
 <style lang="less" scoped>
 @import '@/assets/section.less';
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  --swiper-theme-color: white;
+}
+
+.swiper-slide {
+  margin-bottom: 68px;
+}
 
 .view-image {
   position: absolute;
@@ -125,30 +110,10 @@ function imagePrev() {
     padding: 20px 30px;
   }
 
-  .photo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
+  img {
+    object-fit: contain;
     width: 100%;
     height: 100%;
-
-
-    img {
-      object-fit: contain;
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  .arrows {
-    padding: 20px 30px;
-    position: absolute;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    color: var(--text);
-    top: 50%;
   }
 
   .button {
@@ -163,7 +128,7 @@ function imagePrev() {
 }
 
 .image-container {
-  margin-top: 20px;
+  margin: 20px 0;
   display: flex;
   justify-content: center;
   gap: 20px;

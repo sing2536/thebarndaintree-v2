@@ -5,4 +5,7 @@
   --page-max-width: 1300px;
   --page-margin: 0 30px;
   --small-screen-width: 1000px;
+
+  --swiper-theme-color: black;
+  --swiper-pagination-bullet-inactive-color: grey;
 }

@@ -18,6 +18,7 @@ function closeSideBar() {
 </script>
 
 <template>
+
   <header>
     <div class="nav-container">
         <div class="logo">The Barn Daintree</div>
@@ -29,8 +30,9 @@ function closeSideBar() {
         </div>
     </div>
   </header>
+
   <Transition name="sidebar">
-      <div v-show="store.sideBarActive" class="sidebar">
+      <div v-show="store.sideBarActive" class="sidebar" v-click-outside="closeSideBar">
           <div class="close" @click="store.sideBarActive = false">
               <font-awesome-icon icon="fa-solid fa-xmark" />
           </div>
@@ -39,12 +41,18 @@ function closeSideBar() {
           </div>
       </div>
   </Transition>
+
+  <Transition name="fade">
+    <div class="mask" v-show="store.sideBarActive"></div>
+  </Transition>
+  
 </template>
 
 <style lang="less" scoped>
 
 .menu-button {
     cursor: pointer;
+    display: none;
 }
 
 a {
@@ -64,7 +72,7 @@ a {
     height: 100%;
     right: 0;
     background-color: white;
-    z-index: 2;
+    z-index: 3;
     display: flex;
     flex-direction: column;
     color: var(--text-alt);
@@ -82,7 +90,7 @@ a {
         font-size: 1.2em;
 
         a {
-            padding: 16px 40px;
+            padding: 16px 60px;
             border: none;
 
             &.router-link-active {
@@ -124,6 +132,14 @@ nav {
     color: var(--text);
 }
 
+.mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: rgb(0 0 0 / 50%)
+}
+
 @media (max-width: 800px) {
     .nav-container {
         justify-content: space-between;
@@ -141,12 +157,23 @@ nav {
 
 .sidebar-enter-active,
 .sidebar-leave-active {
-    transition: all 0.2s ease;
+    transition: transform 0.2s ease;
     transform: translate(0);
 }
 
 .sidebar-enter-from,
 .sidebar-leave-to {
     transform: translate(200px, 0);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.2s ease;
+    opacity: 1;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
 }
 </style>

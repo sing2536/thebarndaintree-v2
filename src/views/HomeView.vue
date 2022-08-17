@@ -190,3 +190,9 @@ function goToPage(p) {
   }
 }
 </style>
+
+<style>
+.swiper-wrapper {
+  align-items: center;
+}
+</style>

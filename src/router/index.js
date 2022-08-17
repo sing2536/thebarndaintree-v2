@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import storeIndex from '@/stores/index'
 
 const router = createRouter({
   history: createWebHistory('/v2/'),
@@ -29,9 +30,11 @@ const router = createRouter({
       redirect: '/'
     },
   ],
-  scrollBehavior(to, from, savedPosition) {
-    return { top: 0 }
-  },
 });
+
+router.beforeEach((to, from) => {
+  const store = storeIndex()
+  store.sideBarActive = false
+})
 
 export default router;

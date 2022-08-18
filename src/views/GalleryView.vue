@@ -94,10 +94,6 @@ function openPicture(i) {
   --swiper-theme-color: white;
 }
 
-.swiper-slide {
-  margin-bottom: 68px;
-}
-
 .view-image {
   position: absolute;
   width: 100%;

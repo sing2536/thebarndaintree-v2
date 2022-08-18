@@ -56,7 +56,7 @@
   .calendar .calendar-header table
   {
       width:100%;
-      background: #505c44;
+      background: var(--text-alt);
       color: white;
   }
   
@@ -67,7 +67,7 @@
   }
   
   .calendar .calendar-header table th:hover {
-    background: #6f7a5c;
+    background: rgb(41, 41, 41);
     cursor: pointer;
   }
   
@@ -94,12 +94,12 @@
   
   .calendar .year-neighbor
   {
-      color:#8c9d7c;
+      color: var(--text2);
   }
   
   .calendar .year-neighbor2
   {
-      color:#8c9d7c;
+      color:var(--text2);
   }
   
   /* Months */
@@ -116,7 +116,7 @@
       height: 234px;
       padding: 6px 20px;
       display: inline-block;
-      color: #535353;
+      color: #1f1f1f;
       font-weight: bold!important;
   }
   

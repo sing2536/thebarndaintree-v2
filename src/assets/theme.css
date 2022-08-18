@@ -1,12 +1,12 @@
 :root {
   --text: white;
   --text2: grey;
-  --text-alt: black;
+  --text-alt: #23272a;
   --red: #ff2a2a;
   --page-max-width: 1300px;
   --page-margin: 0 30px;
   --small-screen-width: 1000px;
 
-  --swiper-theme-color: black;
+  --swiper-theme-color: #23272a;
   --swiper-pagination-bullet-inactive-color: grey;
 }

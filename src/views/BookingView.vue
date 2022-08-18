@@ -48,7 +48,7 @@ onMounted(()=>{
         <p>
           Mobile: 0459 499 192<br />
           Phone: (07) 40341266<br />
-          Email: thebarndaintree@hotmail.com<br /><br />
+          Email: thebarndaintree@hotmail.com<br /><br /><br />
         </p>
         <h3>Prices per night</h3>
         <ul>
@@ -56,17 +56,17 @@ onMounted(()=>{
           <li>Extra 95$ for adults and $70 for children, per person, per night</li>
           <li>Give us an enquiry, we try to give out discounts whenever we can</li>
         </ul>
-        <br /><br />
+        <br /><br /><br />
         <h3>Payment method</h3>
         <ul>
           <li>Direct Bank Transfer</li>
         </ul>
-        <br /><br />
+        <br /><br /><br />
         <h2>Calendar</h2>
-        <p>
-          Please check our availability using the calendar below.<br />
-          *Red blocks are unavailable.
-        </p>
+        <p>Please check our availability using the calendar below.</p>
+        <div class="legend">
+          <div class="red-block"></div><p>Red blocks are unavailable.</p>
+        </div>
         <br />
         <div class="calendar"></div>
       </div>
@@ -78,8 +78,21 @@ onMounted(()=>{
 <style lang="less" scoped>
 @import '@/assets/section.less';
 
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.red-block {
+  width: 24px;
+  height: 24px;
+  background: var(--red);
+}
+
 h3 {
-  padding-bottom: 20px;
+  padding-bottom: 14px;
 }
 
 .image-1 {

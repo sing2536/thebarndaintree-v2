@@ -67,7 +67,7 @@
   }
   
   .calendar .calendar-header table th:hover {
-    background: rgb(41, 41, 41);
+    background: black;
     cursor: pointer;
   }
   

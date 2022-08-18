@@ -20,9 +20,9 @@
 /* Main */
 .calendar {
     direction: ltr;
-      user-select: none;
-      background: white;
-      box-shadow: 0px 0px 12px 1px rgba(202, 200, 200, 0.8);
+    user-select: none;
+    background: white;
+    box-shadow: 0px 0px 12px 1px rgba(202, 200, 200, 0.8);
   }
   
   .calendar.calendar-rtl {
@@ -82,6 +82,7 @@
   .calendar .calendar-header table th.next
   {
       width:20px;
+      display: none;
   }
   
   .calendar .year-title {
@@ -251,4 +252,11 @@
   
   .calendar-context-menu  .item:hover > .submenu {
       display:block;
+  }
+
+  @media (max-width: 450px) {
+    .calendar .calendar-header table th {
+      font-size: 18px;
+      padding: 5px;
+    }
   }

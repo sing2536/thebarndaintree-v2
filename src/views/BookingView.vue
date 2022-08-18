@@ -12,7 +12,7 @@ function handleData(a){
   for (var i = 0; i < a.length; i++) {
     a[i].checkIn = cleanDate(a[i].checkIn);
     a[i].checkOut = cleanDate(a[i].checkOut);
-    a[i].color = "rgb(255, 130, 130)";
+    a[i].color = "var(--red)";
   };
 
   $('.calendar').calendar({startYear: (new Date().getFullYear()), alwaysHalfDay: true, style: 'background'}).setDataSource(a)

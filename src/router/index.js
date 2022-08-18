@@ -7,22 +7,22 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "home",
+      name: "Home",
       component: HomeView,
     },
     {
       path: "/gallery",
-      name: "gallery",
+      name: "Gallery",
       component: () => import("../views/GalleryView.vue"),
     },
     {
       path: "/expect",
-      name: "what to expect",
+      name: "What to Expect",
       component: () => import("../views/ExpectView.vue"),
     },
     {
       path: "/booking",
-      name: "booking",
+      name: "Booking",
       component: () => import("../views/BookingView.vue"),
     },
     {

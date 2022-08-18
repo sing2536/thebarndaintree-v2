@@ -2,14 +2,14 @@
 import { reactive, ref } from 'vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faXmark, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Pagination } from 'swiper';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination'
 import 'swiper/css'
 
-library.add(faXmark, faChevronLeft, faChevronRight)
+library.add(faXmark)
 
 const swiperModules = reactive([Navigation, Pagination])
 const images = reactive([

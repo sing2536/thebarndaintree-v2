@@ -54,7 +54,7 @@ function closeSideBar() {
 
 .logo {
     img {
-        width: 340px;
+        width: 300px;
     }
 }
 .menu-button {
@@ -85,7 +85,7 @@ a {
     color: var(--text-alt);
 
     .close {
-        padding: 26px 26px;
+        padding: 34px 30px;
         align-self: flex-end;
         font-size: 3em;
         cursor: pointer;
@@ -123,7 +123,7 @@ header {
     gap: 80px;
     flex: 1;
     margin: var(--page-margin);
-    margin: 30px;
+    margin: 20px 30px;
     max-width: var(--page-max-width);
 }
 
@@ -147,10 +147,10 @@ nav {
     background: rgb(0 0 0 / 50%)
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     .logo {
         img {
-            width: 220px;
+            width: 180px;
         }
     }
     .nav-container {

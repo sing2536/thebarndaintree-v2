@@ -21,7 +21,9 @@ function closeSideBar() {
 
   <header>
     <div class="nav-container">
-        <div class="logo">The Barn Daintree</div>
+        <div class="logo">
+            <img src="@/assets/images/logo.png" alt="">
+        </div>
         <nav>
             <RouterLink v-for="(route, i) in router.getRoutes()" :to="route.path" :key="i">{{route.name}}</RouterLink>
         </nav>
@@ -50,6 +52,11 @@ function closeSideBar() {
 
 <style lang="less" scoped>
 
+.logo {
+    img {
+        width: 340px;
+    }
+}
 .menu-button {
     cursor: pointer;
     display: none;
@@ -78,7 +85,7 @@ a {
     color: var(--text-alt);
 
     .close {
-        padding: 10px 18px;
+        padding: 26px 26px;
         align-self: flex-end;
         font-size: 3em;
         cursor: pointer;
@@ -141,6 +148,11 @@ nav {
 }
 
 @media (max-width: 800px) {
+    .logo {
+        img {
+            width: 220px;
+        }
+    }
     .nav-container {
         justify-content: space-between;
     }

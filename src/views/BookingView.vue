@@ -47,8 +47,8 @@ onMounted(()=>{
         </p>
         <p>
           Mobile: 0459 499 192<br />
-          Phone: (07) 40341266<br />
-          Email: thebarndaintree@hotmail.com<br /><br /><br />
+          Email: <a href="mailto:thebarndaintree@hotmail.com" target="_blank">thebarndaintree@hotmail.com</a>
+          <br /><br /><br />
         </p>
         <h3>Prices per night</h3>
         <ul>
@@ -81,7 +81,7 @@ onMounted(()=>{
 .legend {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   margin-top: 10px;
 }
 

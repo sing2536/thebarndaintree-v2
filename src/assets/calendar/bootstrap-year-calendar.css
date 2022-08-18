@@ -22,7 +22,7 @@
     direction: ltr;
     user-select: none;
     background: white;
-    box-shadow: 0px 0px 12px 1px rgba(202, 200, 200, 0.8);
+    /* box-shadow: 0px 0px 12px 1px rgba(202, 200, 200, 0.8); */
   }
   
   .calendar.calendar-rtl {

@@ -1,15 +1,17 @@
 <script setup>
 import { reactive, ref } from 'vue'
+
+//icons
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
-import { Swiper, SwiperSlide } from 'swiper/vue';
+library.add(faXmark)
+
+import { Swiper, SwiperSlide, useSwiper  } from 'swiper/vue';
 import { Navigation, Pagination } from 'swiper';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination'
 import 'swiper/css'
-
-library.add(faXmark)
 
 const swiperModules = reactive([Navigation, Pagination])
 const images = reactive([
@@ -31,6 +33,15 @@ const images = reactive([
   },
 ])
 const imageActive = ref(null)
+
+function onSlideChange(data) {
+  imageActive.value = data.activeIndex
+}
+
+function openPicture(i) {
+  imageActive.value = i
+  document.querySelector('.swiper').swiper.slideTo(i)
+}
 </script>
 
 <template>
@@ -47,13 +58,13 @@ const imageActive = ref(null)
     <div class="content">
       <div class="content-container">
         <div class="image-container">
-          <img v-for="(image, i) in images" @click="imageActive = i" :src="image.src" :key="i">
+          <img v-for="(image, i) in images" @click="openPicture(i)" :src="image.src" :key="i">
         </div>
       </div>
     </div>
   </div>
 
-  <div v-if="imageActive != null" class="image-viewer">
+  <div v-show="imageActive != null" class="image-viewer">
     <div class="header">
       <div>Photo {{imageActive+1}} of {{images.length}}</div>
       <div @click="imageActive = null" class="button"><font-awesome-icon icon="fa-solid fa-xmark" /></div>
@@ -64,6 +75,7 @@ const imageActive = ref(null)
       :pagination="{ clickable: true }"
       :slides-per-view="1"
       :centeredSlides="true"
+      @slideChange="onSlideChange"
     >
       <swiper-slide v-for="(image, i) in images" :key="i">
         <img :src="image.src" />

@@ -5,7 +5,7 @@ import Footer from "./components/Footer.vue";
 import Notification from "./components/Notification.vue";
 </script>
 
-<template>
+<template v-cloak>
   <Nav />
   <RouterView />
   <Footer />

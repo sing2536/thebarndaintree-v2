@@ -56,6 +56,7 @@ onMounted(() => {
     background: var(--red);
     bottom: 0;
     display: flex;
+    z-index: 10;
 }
 
 .button-container {

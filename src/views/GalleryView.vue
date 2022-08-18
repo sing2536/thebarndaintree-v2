@@ -16,20 +16,76 @@ import 'swiper/css'
 const swiperModules = reactive([Navigation, Pagination])
 const images = reactive([
   {
-    src: 'https://thebarndaintree.com/gallery/1.jpg',
-    thumbnail: 'https://thebarndaintree.com/gallery/1thumb.jpg',
+    src: '1.jpg',
   },
   {
-    src: 'https://thebarndaintree.com/gallery/2.jpg',
-    thumbnail: 'https://thebarndaintree.com/gallery/2thumb.jpg',
+    src: '1-1.jpg',
   },
   {
-    src: 'https://thebarndaintree.com/gallery/3.jpg',
-    thumbnail: 'https://thebarndaintree.com/gallery/3thumb.jpg',
+    src: '1-2.jpg',
   },
   {
-    src: 'https://thebarndaintree.com/gallery/4.jpg',
-    thumbnail: 'https://thebarndaintree.com/gallery/4thumb.jpg',
+    src: '2.jpg',
+  },
+  {
+    src: '3.jpg',
+  },
+  {
+    src: '4.jpg',
+  },
+  {
+    src: '5.jpg',
+  },
+  {
+    src: '6.jpg',
+  },
+  {
+    src: '7.jpg',
+  },
+  {
+    src: '8.jpg',
+  },
+  {
+    src: '8-1.jpg',
+  },
+  {
+    src: '9.jpg',
+  },
+  {
+    src: '10.jpg',
+  },
+  {
+    src: '11.jpg',
+  },
+  {
+    src: '12.jpg',
+  },
+  {
+    src: '13.jpg',
+  },
+  {
+    src: '14.jpg',
+  },
+  {
+    src: '15.jpg',
+  },
+  {
+    src: '16.jpg',
+  },
+  {
+    src: '17.jpg',
+  },
+  {
+    src: '18.jpg',
+  },
+  {
+    src: '19.jpg',
+  },
+  {
+    src: '20.jpg',
+  },
+  {
+    src: '21.jpg',
   },
 ])
 const imageActive = ref(null)
@@ -58,7 +114,7 @@ function openPicture(i) {
     <div class="content">
       <div class="content-container">
         <div class="image-container">
-          <img v-for="(image, i) in images" @click="openPicture(i)" :src="image.src" :key="i">
+          <img v-for="(image, i) in images" @click="openPicture(i)" :src="'/gallery/'+image.src" :key="i">
         </div>
       </div>
     </div>
@@ -78,7 +134,7 @@ function openPicture(i) {
       @slideChange="onSlideChange"
     >
       <swiper-slide v-for="(image, i) in images" :key="i">
-        <img :src="image.src" />
+        <img :src="'/gallery/'+image.src" />
       </swiper-slide>
     </swiper>
   </div>
@@ -141,6 +197,7 @@ function openPicture(i) {
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  align-items: center;
 
   img {
     width: 400px;
@@ -154,6 +211,6 @@ function openPicture(i) {
 
 .image-1 {
   height: 500px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)) , url('@/assets/images/4.webp');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)) , url('@/assets/images/20.jpg');
 }
 </style>

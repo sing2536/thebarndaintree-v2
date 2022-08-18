@@ -61,7 +61,7 @@ function goToPage(p) {
   <div class="section image-1">
     <div class="content bottom">
       <div class="content-container" v-scroll-fade>
-        <h2>Welcome,</h2>
+        <h2>Welcome</h2>
         <h3>To your next holiday destination.</h3>
         <div>
           <button @click="goToPage('booking')">Enquire Now</button>

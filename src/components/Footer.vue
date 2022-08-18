@@ -52,7 +52,7 @@ const router = useRouter()
 .nav-container {
     display: flex;
     justify-content: center;
-    gap: 60px;
+    gap: 80px;
 }
 
 .logo {
@@ -66,7 +66,7 @@ const router = useRouter()
 nav {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     color: var(--text);
 
     .title {
@@ -76,7 +76,7 @@ nav {
     a {
         text-decoration: none;
         font-weight: 500;
-        font-size: 1em;
+        font-size: 1.2em;
 
         &:hover {
             text-decoration: underline;

@@ -16,7 +16,7 @@ function imageLoadCheck() {
 }
 
 function imagePath() {
-    return `/images/sections/${props.image}`
+    return `./images/sections/${props.image}`
 }
 
 onMounted(()=>{

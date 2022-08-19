@@ -54,8 +54,7 @@ onMounted(()=>{
         <h3>Prices per night</h3>
         <ul>
           <li>Base rate for 2 guests is $480</li>
-          <li>Extra 95$ for adults and $70 for children, per person, per night</li>
-          <li>Give us an enquiry, we try to give out discounts whenever we can</li>
+          <li>Extra $95 for adults and $70 for children, per person, per night</li>
         </ul>
         <br /><br /><br />
         <h3>Payment method</h3>

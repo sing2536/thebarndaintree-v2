@@ -3,6 +3,7 @@ import { onMounted } from 'vue'
 import '@/assets/jquery.min.js'
 import '@/assets/calendar/bootstrap-year-calendar.js'
 import axios from 'axios'
+import Section from '@/components/Section.vue'
 
 function getCalendar() {
   axios('/portal/public/api/extcalendar').then((r)=> handleData(r.data[0]))
@@ -30,13 +31,13 @@ onMounted(()=>{
 
 <template>
 
-  <div class="section header image-1">
+  <Section header image="8.jpg">
     <div class="content bottom">
       <div class="content-container" v-scroll-fade>
         <h2>Booking</h2>
       </div>
     </div>
-  </div>
+  </Section>
 
   <div class="section alt-color" style="height: unset">
     <div class="content">

@@ -6,6 +6,7 @@ import { Navigation, Pagination } from 'swiper';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination'
 import 'swiper/css'
+import Section from '@/components/Section.vue'
 
 const swiperModules = reactive([Navigation, Pagination])
 const router = useRouter()
@@ -58,7 +59,7 @@ function goToPage(p) {
 
 <template>
 
-  <div class="section image-1">
+  <Section image="1.jpg">
     <div class="content bottom">
       <div class="content-container" v-scroll-fade>
         <h2>Welcome</h2>
@@ -68,7 +69,7 @@ function goToPage(p) {
         </div>
       </div>
     </div>
-  </div>
+  </Section>
 
   <div class="section image-2">
     <div class="content center">

@@ -1,5 +1,6 @@
 <script setup>
 import { useRouter } from 'vue-router'
+import Section from '@/components/Section.vue'
 
 const router = useRouter()
 
@@ -15,13 +16,13 @@ function openUrl(url) {
 
 <template>
 
-  <div class="section header image-1">
+  <Section header image="7.jpg">
     <div class="content bottom">
       <div class="content-container" v-scroll-fade>
         <h2>What to Expect</h2>
       </div>
     </div>
-  </div>
+  </Section>
 
   <div class="section alt-color" style="height: unset">
     <div class="content">

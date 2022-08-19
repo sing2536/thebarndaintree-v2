@@ -1,5 +1,6 @@
 <script setup>
 import { reactive, ref } from 'vue'
+import Section from '@/components/Section.vue'
 
 //icons
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -89,6 +90,7 @@ const images = reactive([
   },
 ])
 const imageActive = ref(null)
+const loading = ref(true)
 
 function onSlideChange(data) {
   imageActive.value = data.activeIndex
@@ -102,42 +104,44 @@ function openPicture(i) {
 
 <template>
 
-  <div class="section header image-1">
+  <Section header image="20.jpg" @loaded="loading = false">
     <div class="content bottom">
       <div class="content-container" v-scroll-fade>
         <h2>Gallery</h2>
       </div>
     </div>
-  </div>
+  </Section>
 
-  <div class="section no-height alt-color">
-    <div class="content">
-      <div class="content-container">
-        <div class="image-container">
-          <img v-for="(image, i) in images" @click="openPicture(i)" :src="'/gallery/'+image.src" :key="i">
+  <template v-if="!loading">
+    <div class="section no-height alt-color">
+      <div class="content">
+        <div class="content-container">
+          <div class="image-container">
+            <img v-for="(image, i) in images" @click="openPicture(i)" :src="'/gallery/'+image.src" :key="i">
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div v-show="imageActive != null" class="image-viewer">
-    <div class="header">
-      <div>Photo {{imageActive+1}} of {{images.length}}</div>
-      <div @click="imageActive = null" class="button"><font-awesome-icon icon="fa-solid fa-xmark" /></div>
+    <div v-show="imageActive != null" class="image-viewer">
+      <div class="header">
+        <div>Photo {{imageActive+1}} of {{images.length}}</div>
+        <div @click="imageActive = null" class="button"><font-awesome-icon icon="fa-solid fa-xmark" /></div>
+      </div>
+      <swiper
+        :modules="swiperModules"
+        navigation
+        :pagination="{ clickable: true }"
+        :slides-per-view="1"
+        :centeredSlides="true"
+        @slideChange="onSlideChange"
+      >
+        <swiper-slide v-for="(image, i) in images" :key="i">
+          <img :src="'/gallery/'+image.src" />
+        </swiper-slide>
+      </swiper>
     </div>
-    <swiper
-      :modules="swiperModules"
-      navigation
-      :pagination="{ clickable: true }"
-      :slides-per-view="1"
-      :centeredSlides="true"
-      @slideChange="onSlideChange"
-    >
-      <swiper-slide v-for="(image, i) in images" :key="i">
-        <img :src="'/gallery/'+image.src" />
-      </swiper-slide>
-    </swiper>
-  </div>
+  </template>
 
 </template>
 
@@ -209,8 +213,8 @@ function openPicture(i) {
   }
 }
 
-.image-1 {
-  height: 500px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)) , url('@/assets/images/20.jpg');
-}
+// .image-1 {
+//   height: 500px;
+//   background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)) , url('@/assets/images/20.jpg');
+// }
 </style>

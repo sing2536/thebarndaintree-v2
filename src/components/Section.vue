@@ -1,18 +1,24 @@
 <script setup>
 import { onMounted, ref } from "@vue/runtime-core"
+import storeIndex from '@/stores/index'
 
 const props = defineProps(['image', "header"])
 const emit = defineEmits(['loaded'])
+const store = storeIndex()
 const loading = ref(false)
 
 function imageLoadCheck() {
-    let img = new Image()
-    img.src = imagePath()
-    img.onload = () => {
-        loading.value = true
-        emit('loaded')
-    }
-    if (img.complete) img.onload();
+  if (!props.image) return
+  if (props.header != undefined) store.$patch({headerLoading: true})
+  loading.value = true
+  let img = new Image()
+  img.src = imagePath()
+  img.onload = () => {
+      loading.value = false
+      store.$patch({headerLoading: false})
+      emit('loaded')
+  }
+  if (img.complete) img.onload();
 }
 
 function imagePath() {
@@ -25,11 +31,11 @@ onMounted(()=>{
 </script>
 
 <template>
-    <div :class="['section', image ? 'image':'', !loading ? 'loading':'', header != undefined ? 'header':'']" :style="{ 'background-image': `url(${imagePath()})` }">
-    <div v-if="!loading" class="loader-container">
-        <div class="loader"></div>
-    </div>
-        <slot v-if="loading"/>
+    <div :class="['section', image ? 'image':'', loading ? 'loading':'', header != undefined ? 'header':'']" :style="{ 'background-image': `url(${imagePath()})` }">
+      <div v-if="loading" class="loader-container">
+          <div class="loader"></div>
+      </div>
+      <slot v-if="!loading"/>
     </div>
 </template>
 
@@ -41,7 +47,7 @@ onMounted(()=>{
 }
 
 .image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.46),rgba(0, 0, 0, 0.48));
+  background-color: linear-gradient(rgba(0, 0, 0, 0.46),rgba(0, 0, 0, 0.48));
 }
 
 .loader-container {

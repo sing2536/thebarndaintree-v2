@@ -1,6 +1,7 @@
 <script setup>
 import { reactive, ref } from 'vue'
 import Section from '@/components/Section.vue'
+import storeIndex from '@/stores/index'
 
 //icons
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -14,6 +15,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination'
 import 'swiper/css'
 
+const store = storeIndex()
 const swiperModules = reactive([Navigation, Pagination])
 const images = reactive([
   {
@@ -90,7 +92,6 @@ const images = reactive([
   },
 ])
 const imageActive = ref(null)
-const loading = ref(true)
 
 function onSlideChange(data) {
   imageActive.value = data.activeIndex
@@ -104,7 +105,7 @@ function openPicture(i) {
 
 <template>
 
-  <Section header image="20.jpg" @loaded="loading = false">
+  <Section header image="20.jpg">
     <div class="content bottom">
       <div class="content-container" v-scroll-fade>
         <h2>Gallery</h2>
@@ -112,7 +113,7 @@ function openPicture(i) {
     </div>
   </Section>
 
-  <template v-if="!loading">
+  <template v-if="!store.headerLoading">
     <div class="section no-height alt-color">
       <div class="content">
         <div class="content-container">

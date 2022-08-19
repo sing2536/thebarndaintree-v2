@@ -4,6 +4,9 @@ import '@/assets/jquery.min.js'
 import '@/assets/calendar/bootstrap-year-calendar.js'
 import axios from 'axios'
 import Section from '@/components/Section.vue'
+import storeIndex from '@/stores/index'
+
+const store = storeIndex()
 
 function getCalendar() {
   axios('/portal/public/api/extcalendar').then((r)=> handleData(r.data[0]))
@@ -39,39 +42,47 @@ onMounted(()=>{
     </div>
   </Section>
 
-  <div class="section alt-color" style="height: unset">
-    <div class="content">
-      <div class="content-container">
-        <h3>Contact</h3>
-        <p>
-          To make an enquiry or booking, please contact us using below details.<br />
-        </p>
-        <p>
-          Mobile: 0459 499 192<br />
-          Email: <a href="mailto:thebarndaintree@hotmail.com" target="_blank">thebarndaintree@hotmail.com</a>
+  <template v-if="!store.headerLoading" >
+    <div class="section alt-color" style="height: unset">
+      <div class="content">
+        <div class="content-container">
+
+          <h3>Contact</h3>
+          <p>
+            To make an enquiry or booking, please contact us using below details.<br />
+          </p>
+          <p>
+            Mobile: 0459 499 192<br />
+            Email: <a href="mailto:thebarndaintree@hotmail.com" target="_blank">thebarndaintree@hotmail.com</a>
+            <br /><br /><br />
+          </p>
+
+          <h3>Prices per night</h3>
+          <ul>
+            <li>Base rate for 2 guests is $480</li>
+            <li>Extra $95 for adults and $70 for children, per person, per night</li>
+          </ul>
           <br /><br /><br />
-        </p>
-        <h3>Prices per night</h3>
-        <ul>
-          <li>Base rate for 2 guests is $480</li>
-          <li>Extra $95 for adults and $70 for children, per person, per night</li>
-        </ul>
-        <br /><br /><br />
-        <h3>Payment method</h3>
-        <ul>
-          <li>Direct Bank Transfer</li>
-        </ul>
-        <br /><br /><br />
-        <h2>Calendar</h2>
-        <p>Please check our availability using the calendar below.</p>
-        <div class="legend">
-          <div class="red-block"></div><p>Red blocks are unavailable.</p>
+
+          <h3>Payment method</h3>
+          <ul>
+            <li>Direct Bank Transfer</li>
+          </ul>
+          <br /><br /><br />
+
+          <h2>Calendar</h2>
+          <p>Please check our availability using the calendar below.</p>
+          <div class="legend">
+            <div class="red-block"></div><p>Red blocks are unavailable.</p>
+          </div>
+          <br />
+          <div class="calendar"></div>
+
         </div>
-        <br />
-        <div class="calendar"></div>
       </div>
     </div>
-  </div>
+
+  </template>
   
 </template>
 

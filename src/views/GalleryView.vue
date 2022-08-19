@@ -117,7 +117,7 @@ function openPicture(i) {
       <div class="content">
         <div class="content-container">
           <div class="image-container">
-            <img v-for="(image, i) in images" @click="openPicture(i)" :src="'/gallery/'+image.src" :key="i">
+            <img v-for="(image, i) in images" @click="openPicture(i)" :src="'./gallery/'+image.src" :key="i">
           </div>
         </div>
       </div>
@@ -137,7 +137,7 @@ function openPicture(i) {
         @slideChange="onSlideChange"
       >
         <swiper-slide v-for="(image, i) in images" :key="i">
-          <img :src="'/gallery/'+image.src" />
+          <img :src="'./gallery/'+image.src" />
         </swiper-slide>
       </swiper>
     </div>

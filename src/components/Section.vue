@@ -16,7 +16,7 @@ function imageLoadCheck() {
 }
 
 function imagePath() {
-    return `/images/sections/${props.image}`
+    return `@/images/sections/${props.image}`
 }
 
 onMounted(()=>{
@@ -37,7 +37,7 @@ onMounted(()=>{
 @import '@/assets/section.less';
 
 .loading {
-    background: white!important;
+    background: var(--text2)!important;
 }
 
 .image {
@@ -62,10 +62,10 @@ onMounted(()=>{
   font-size: 10px;
   position: relative;
   text-indent: -9999em;
-  border-top: 1.1em solid rgba(255, 255, 255, 0.2);
-  border-right: 1.1em solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
-  border-left: 1.1em solid var(--text-alt);
+  border-top: 1.1em solid rgba(0, 0, 0, 0.2);
+  border-right: 1.1em solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1.1em solid rgba(0, 0, 0, 0.2);
+  border-left: 1.1em solid var(--text);
   transform: translateZ(0);
   animation: load8 .6s infinite linear;
 }

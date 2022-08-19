@@ -13,7 +13,7 @@ const store = storeIndex()
 const router = useRouter()
 
 function closeSideBar() {
-    store.sideBarActive = false
+    if (store.sideBarActive) store.sideBarActive = false
 }
 </script>
 
@@ -95,6 +95,7 @@ a {
         display: flex;
         flex-direction: column;
         font-size: 1.2em;
+        overflow: auto;
 
         a {
             padding: 16px 60px;

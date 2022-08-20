@@ -73,7 +73,7 @@ onMounted(()=>{
   border-bottom: 1.1em solid rgba(0, 0, 0, 0.2);
   border-left: 1.1em solid var(--text);
   transform: translateZ(0);
-  animation: load8 .6s infinite linear;
+  animation: load8 .5s infinite linear;
 }
 @-webkit-keyframes load8 {
   0% {

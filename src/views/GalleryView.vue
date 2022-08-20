@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, watch } from 'vue'
 import Section from '@/components/Section.vue'
 import storeIndex from '@/stores/index'
 
@@ -114,6 +114,7 @@ function openPicture(i) {
   </Section>
 
   <template v-if="!store.headerLoading">
+
     <div class="section no-height alt-color">
       <div class="content">
         <div class="content-container">
@@ -142,6 +143,7 @@ function openPicture(i) {
         </swiper-slide>
       </swiper>
     </div>
+    
   </template>
 
 </template>

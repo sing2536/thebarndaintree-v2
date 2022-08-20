@@ -34,7 +34,7 @@ function closeSideBar() {
   </header>
 
   <Transition name="sidebar">
-      <div v-show="store.sideBarActive" class="sidebar" v-click-outside="closeSideBar">
+      <div v-if="store.sideBarActive" class="sidebar" v-click-outside="closeSideBar">
           <div class="close" @click="store.sideBarActive = false">
               <font-awesome-icon icon="fa-solid fa-xmark" />
           </div>

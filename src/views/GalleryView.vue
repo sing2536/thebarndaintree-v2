@@ -138,11 +138,12 @@ function openPicture(i) {
       }"
       :navigation="true"
       :modules="swiperModules"
+      @slideChange="onSlideChange"
       class="mySwiper"
     >
       <swiper-slide v-for="(image, i) in images" :key="i">
         <img :data-src="'./gallery/'+image.src" class="swiper-lazy" />
-        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+        <div class="swiper-lazy-preloader"></div>
       </swiper-slide>
     </swiper>
   </div>
@@ -151,6 +152,10 @@ function openPicture(i) {
 
 <style lang="less" scoped>
 @import '@/assets/section.less';
+
+.swiper-lazy {
+  border: none;
+}
 
 .swiper {
   width: 100%;

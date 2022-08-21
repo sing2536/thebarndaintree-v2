@@ -119,7 +119,7 @@ function openPicture(i) {
       <div class="content">
         <div class="content-container">
           <div class="image-container">
-            <img v-for="(image, i) in images" @click="openPicture(i)" v-lazy="{ src: `./gallery/${image.src}`}" :key="i">
+            <img v-for="(image, i) in images" @click="openPicture(i)" v-lazy="{ src: `./gallery/thumbnails/${image.src}`}" :key="i">
           </div>
         </div>
       </div>
@@ -151,10 +151,6 @@ function openPicture(i) {
 
 <style lang="less" scoped>
 @import '@/assets/section.less';
-
-img[lazy=loading] {
-  content: 'loading';
-}
 
 .swiper {
   width: 100%;
@@ -219,6 +215,10 @@ img[lazy=loading] {
       width: 340px;
     }
   }
+}
+
+img[lazy=loading] {
+  background: rgb(238, 238, 238)
 }
 
 // .image-1 {

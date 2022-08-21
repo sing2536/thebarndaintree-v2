@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref, watch } from 'vue'
+import { reactive, ref } from 'vue'
 import Section from '@/components/Section.vue'
 import storeIndex from '@/stores/index'
 
@@ -9,14 +9,15 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 library.add(faXmark)
 
-import { Swiper, SwiperSlide, useSwiper  } from 'swiper/vue';
-import { Navigation, Pagination } from 'swiper';
+import { Lazy, Pagination, Navigation } from "swiper";
+import { Swiper, SwiperSlide  } from 'swiper/vue';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination'
+import 'swiper/css/lazy'
 import 'swiper/css'
 
 const store = storeIndex()
-const swiperModules = reactive([Navigation, Pagination])
+const swiperModules = reactive([Lazy, Navigation, Pagination])
 const images = reactive([
   {
     src: '1.jpg',
@@ -114,42 +115,46 @@ function openPicture(i) {
   </Section>
 
   <template v-if="!store.headerLoading">
-
     <div class="section no-height alt-color">
       <div class="content">
         <div class="content-container">
           <div class="image-container">
-            <img v-for="(image, i) in images" @click="openPicture(i)" :src="'./gallery/'+image.src" :key="i">
+            <img v-for="(image, i) in images" @click="openPicture(i)" v-lazy="{ src: `./gallery/${image.src}`}" :key="i">
           </div>
         </div>
       </div>
     </div>
-
-    <div v-show="imageActive != null" class="image-viewer">
-      <div class="header">
-        <div>Photo {{imageActive+1}} of {{images.length}}</div>
-        <div @click="imageActive = null" class="button"><font-awesome-icon icon="fa-solid fa-xmark" /></div>
-      </div>
-      <swiper
-        :modules="swiperModules"
-        navigation
-        :pagination="{ clickable: true }"
-        :slides-per-view="1"
-        :centeredSlides="true"
-        @slideChange="onSlideChange"
-      >
-        <swiper-slide v-for="(image, i) in images" :key="i">
-          <img :src="'./gallery/'+image.src" />
-        </swiper-slide>
-      </swiper>
-    </div>
-    
   </template>
+
+  <div v-show="imageActive != null" class="image-viewer">
+    <div class="header">
+      <div>Photo {{imageActive+1}} of {{images.length}}</div>
+      <div @click="imageActive = null" class="button"><font-awesome-icon icon="fa-solid fa-xmark" /></div>
+    </div>
+    <swiper
+      :lazy="{loadPrevNext: true}"
+      :pagination="{
+        clickable: true,
+      }"
+      :navigation="true"
+      :modules="swiperModules"
+      class="mySwiper"
+    >
+      <swiper-slide v-for="(image, i) in images" :key="i">
+        <img :data-src="'./gallery/'+image.src" class="swiper-lazy" />
+        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+      </swiper-slide>
+    </swiper>
+  </div>
 
 </template>
 
 <style lang="less" scoped>
 @import '@/assets/section.less';
+
+img[lazy=loading] {
+  content: 'loading';
+}
 
 .swiper {
   width: 100%;

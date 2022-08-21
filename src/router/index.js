@@ -35,6 +35,7 @@ const router = createRouter({
 router.beforeEach((to, from) => {
   const store = storeIndex()
   store.sideBarActive = false
+  store.headerLoading = true
 
   document.querySelector('#app').scrollTop = 0
 })

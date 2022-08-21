@@ -43,7 +43,7 @@ onMounted(()=>{
 @import '@/assets/section.less';
 
 .loading {
-    background: var(--text2)!important;
+  background: var(--text2)!important;
 }
 
 .image {

@@ -14,9 +14,11 @@ function imageLoadCheck() {
   let img = new Image()
   img.src = imagePath()
   img.onload = () => {
+    setTimeout(() => {
       loading.value = false
       store.$patch({headerLoading: false})
       emit('loaded')
+    }, 500);
   }
   if (img.complete) img.onload();
 }
@@ -35,12 +37,23 @@ onMounted(()=>{
       <div v-if="loading" class="loader-container">
           <div class="loader"></div>
       </div>
+      <transition>
+        <div v-if="!loading" class="fade"></div>
+      </transition>
       <slot v-if="!loading"/>
     </div>
 </template>
 
 <style lang="less" scoped>
 @import '@/assets/section.less';
+.fade {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--text2);
+  opacity: 0;
+}
 
 .loading {
   background: var(--text2)!important;
@@ -90,5 +103,14 @@ onMounted(()=>{
   100% {
     transform: rotate(360deg);
   }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from{
+  opacity: 1;
 }
 </style>

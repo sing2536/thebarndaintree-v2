@@ -28,7 +28,9 @@ function cleanDate(a){
 
 onMounted(()=>{
   $('.calendar').calendar()
-  getCalendar()
+  setTimeout(() => {
+    getCalendar()
+  }, 2000);
 })
 </script>
 

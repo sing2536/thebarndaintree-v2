@@ -26,7 +26,7 @@ export default {
                 setTimeout(() => {
                     if (isVisible()) return scrollHandler()
                     document.getElementById('app').addEventListener("scroll", scrollHandler);
-                }, 800);
+                }, 500);
                
             }
         })

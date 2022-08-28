@@ -48,12 +48,12 @@ onMounted(()=>{
     <div class="content">
       <div class="content-container">
 
-        <h3>Contact</h3>
+        <h3>Enquire</h3>
         <p>
           To make an enquiry or booking, please contact us using below details.<br />
         </p>
         <p>
-          Mobile: 0459 499 192<br />
+          Mobile: <a href="tel:0459499192">0459 499 192</a><br />
           Email: <a href="mailto:thebarndaintree@hotmail.com" target="_blank">thebarndaintree@hotmail.com</a>
           <br /><br /><br />
         </p>

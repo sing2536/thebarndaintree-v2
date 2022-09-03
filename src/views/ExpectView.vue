@@ -51,7 +51,7 @@ function openUrl(url) {
             <div class="left" v-scroll-fade>
               <h2>Local Tourism</h2>
               <p>
-                There is plenty of activities and tours Daintree has to offer, listed below are some of the sites you can visit to book tours and find all the information you need to help plan your holiday. We also keep tour brochures at The Barn which also contains a map of the area listing all the local stores, restaurants etc.
+                There are plenty of activities and tours Daintree has to offer, listed below are some of the sites you can visit to book tours and find all the information you need to help plan your holiday. We also keep tour brochures at The Barn which also contains a map of the area listing all the local stores, restaurants etc.
               </p>
               <div class="links">
                 <button @click="openUrl('https://www.daintreeinfo.com/')">Daintreeinfo.com</button>

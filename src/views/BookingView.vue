@@ -91,7 +91,7 @@ onMounted(()=>{
 .legend {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   margin-top: 10px;
 }
 

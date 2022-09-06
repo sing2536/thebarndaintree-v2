@@ -4,9 +4,15 @@
   --text-alt: #23272a;
   --red: #ff2a2a;
   --page-max-width: 1300px;
-  --page-margin: 0 30px;
+  --page-margin: 0 100px;
   --small-screen-width: 1000px;
 
   --swiper-theme-color: #23272a;
   --swiper-pagination-bullet-inactive-color: grey;
+}
+
+@media (max-width: 1000px) {
+  :root {
+    --page-margin: 0 30px;
+  }
 }

@@ -117,7 +117,7 @@ function openPicture(i) {
   <template v-if="!store.headerLoading">
     <div class="section no-height alt-color">
       <div class="content">
-        <div class="content-container">
+        <div class="content-container image-wrapper">
           <div class="image-container">
             <img v-for="(image, i) in images" @click="openPicture(i)" v-lazy="{ src: `./gallery/thumbnails/${image.src}`}" :key="i">
           </div>
@@ -152,6 +152,10 @@ function openPicture(i) {
 
 <style lang="less" scoped>
 @import '@/assets/section.less';
+
+.image-wrapper {
+  margin: 0 30px!important
+}
 
 .swiper-lazy {
   border: none;

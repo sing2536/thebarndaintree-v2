@@ -64,27 +64,27 @@ onMounted(()=>{
 }
 
 .loader-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    scale: 0.4;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .loader,
 .loader:after {
   border-radius: 50%;
-  width: 10em;
-  height: 10em;
+  width: 5em;
+  height: 5em;
 }
 .loader {
-  margin: 60px auto;
+  margin: auto;
+  margin-top: 200px;
   font-size: 10px;
   position: relative;
   text-indent: -9999em;
-  border-top: 1.1em solid rgba(0, 0, 0, 0.2);
-  border-right: 1.1em solid rgba(0, 0, 0, 0.2);
-  border-bottom: 1.1em solid rgba(0, 0, 0, 0.2);
-  border-left: 1.1em solid var(--text);
+  border-top: 0.5em solid rgba(0, 0, 0, 0.2);
+  border-right: 0.5em solid rgba(0, 0, 0, 0.2);
+  border-bottom: 0.5em solid rgba(0, 0, 0, 0.2);
+  border-left: 0.5em solid var(--text);
   transform: translateZ(0);
   animation: load8 .5s infinite linear;
 }

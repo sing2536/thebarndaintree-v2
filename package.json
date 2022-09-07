@@ -2,8 +2,8 @@
   "name": "thebarndaintree",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --host 0.0.0.0 --base=/v2/",
-    "build": "vite build --base=/v2/",
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
     "preview": "vite preview --port 4173",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },

@@ -3,7 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import storeIndex from '@/stores/index'
 
 const router = createRouter({
-  history: createWebHistory('/v2/'),
+  history: createWebHistory('/'),
   routes: [
     {
       path: "/",

@@ -119,7 +119,7 @@ function openPicture(i) {
       <div class="content">
         <div class="content-container image-wrapper">
           <div class="image-container">
-            <img v-for="(image, i) in images" @click="openPicture(i)" v-lazy="{ src: `./gallery/thumbnails/${image.src}`}" :key="i">
+            <img v-for="(image, i) in images" @click="openPicture(i)" v-lazy="{ src: `./images/gallery/thumbnails/${image.src}`}" :key="i">
           </div>
         </div>
       </div>
@@ -132,7 +132,10 @@ function openPicture(i) {
       <div @click="imageActive = null" class="button"><font-awesome-icon icon="fa-solid fa-xmark" /></div>
     </div>
     <swiper
-      :lazy="{loadPrevNext: true}"
+      :lazy="{
+        loadPrevNext: true,
+        loadPrevNextAmount: 2,
+      }"
       :pagination="{
         clickable: true,
       }"
@@ -142,7 +145,7 @@ function openPicture(i) {
       class="mySwiper"
     >
       <swiper-slide v-for="(image, i) in images" :key="i">
-        <img :data-src="'./gallery/'+image.src" class="swiper-lazy" />
+        <img :data-src="'./images/gallery/'+image.src" class="swiper-lazy" />
         <div class="swiper-lazy-preloader"></div>
       </swiper-slide>
     </swiper>

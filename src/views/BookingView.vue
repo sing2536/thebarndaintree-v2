@@ -23,7 +23,7 @@ function handleData(a){
 }
 
 function cleanDate(a){
-  return new Date(a.substring(0,4), a.substring(5,7), a.substring(8,10));
+  return new Date(a.substring(0,4), a.substring(5,7)-1, a.substring(8,10));
 }
 
 onMounted(()=>{

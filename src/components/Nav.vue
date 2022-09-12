@@ -2,11 +2,13 @@
 import { RouterLink, RouterView } from "vue-router"
 import { useRouter } from 'vue-router'
 import storeIndex from '@/stores/index'
+import { onMounted, onUnmounted } from "vue"
 
 //icons
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { next } from "dom7"
 library.add(faBars, faXmark)
 
 const store = storeIndex()
@@ -15,6 +17,26 @@ const router = useRouter()
 function closeSideBar() {
     if (store.sideBarActive) store.sideBarActive = false
 }
+
+function menuSelect() {
+    const underline = document.querySelector('#underline')
+    const selected = document.querySelector(`nav [href="${router.currentRoute.value.path}"]`).getBoundingClientRect()
+
+    underline.style.width = `${selected.width}px`
+    underline.style.left = `${selected.left}px`
+}
+
+router.afterEach(()=>{
+    menuSelect()
+})
+
+onMounted(()=>{
+    window.addEventListener("resize", menuSelect);
+})
+
+onUnmounted(()=>{
+    window.removeEventListener("resize", menuSelect)
+})
 </script>
 
 <template>
@@ -26,6 +48,7 @@ function closeSideBar() {
         </div>
         <nav>
             <RouterLink v-for="(route, i) in router.getRoutes()" :to="route.path" :key="i">{{route.name}}</RouterLink>
+            <div id="underline"></div>
         </nav>
         <div class="menu-button" @click="store.sideBarActive = true">
             <font-awesome-icon icon="fa-solid fa-bars" />
@@ -52,6 +75,14 @@ function closeSideBar() {
 
 <style lang="less" scoped>
 
+#underline {
+    position: absolute;
+    bottom: 66px;
+    height: 3px;
+    background-color: var(--text);
+    transition: all .3s ease;
+}
+
 .logo {
     img {
         width: 300px;
@@ -68,10 +99,6 @@ a {
     font-weight: bold;
     font-size: 1em;
     line-height: 26px;
-
-    &.router-link-active {
-        border-bottom: 2px solid var(--text);
-    }
 }
 
 .sidebar {

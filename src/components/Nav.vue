@@ -8,7 +8,6 @@ import { onMounted, onUnmounted } from "vue"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
-import { next } from "dom7"
 library.add(faBars, faXmark)
 
 const store = storeIndex()

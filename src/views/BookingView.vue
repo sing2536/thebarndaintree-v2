@@ -6,6 +6,12 @@ import axios from 'axios'
 import Section from '@/components/Section.vue'
 import storeIndex from '@/stores/index'
 
+//icons
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faGift } from '@fortawesome/free-solid-svg-icons'
+library.add(faGift)
+
 const store = storeIndex()
 
 function getCalendar() {
@@ -43,6 +49,21 @@ onMounted(()=>{
       </div>
     </div>
   </Section>
+
+  <div v-show="!store.headerLoading" class="section alt-color no-height special-offer">
+    <div class="content">
+      <div class="content-container">
+
+        <div class="title">
+          <font-awesome-icon icon="fa-solid fa-gift" />
+          <h3>Limited Time Offer</h3>
+        </div>
+        <p>Get 10% off when you stay between now and end of March 2023!</p>
+        <h4>Offer only available specifically for booking dates that are before end of March 2023.</h4>
+
+      </div>
+    </div>
+  </div>
 
   <div v-show="!store.headerLoading" class="section alt-color" style="height: unset">
     <div class="content">
@@ -87,6 +108,33 @@ onMounted(()=>{
 
 <style lang="less" scoped>
 @import '@/assets/section.less';
+
+.special-offer {
+  background: var(--red);
+  color: var(--text)!important;
+  text-align: center;
+
+  p {
+    line-height: initial;
+    padding-bottom: 6px;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 14px;
+
+    [data-icon="gift"] {
+      font-size: 2.6em;
+    }
+
+    h3 {
+      padding: 0px
+    }
+  }
+}
 
 .legend {
   display: flex;

@@ -1,5 +1,6 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { ref, watch } from 'vue';
+import { useRouter } from 'vue-router'
 
 //icons
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -7,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 library.add(faXmark)
 
+const router = useRouter()
 const notificationActive = ref(false)
 const specialOfferAckName = 'specialOfferAck2'
 
@@ -16,6 +18,9 @@ function notificationClose() {
 }
 
 function specialOfferHandler() {
+    //skip for booking page as they may already have notification
+    if (router.currentRoute.value.path == '/booking') return notificationActive.value = false
+
     let ack = localStorage.getItem(specialOfferAckName)
     if (ack) {
         let ackTime = parseInt(localStorage.getItem(specialOfferAckName))
@@ -24,9 +29,7 @@ function specialOfferHandler() {
     notificationActive.value = true
 }
 
-onMounted(() => {
-    specialOfferHandler()
-})
+watch(router.currentRoute, () => specialOfferHandler())
 
 </script>
 

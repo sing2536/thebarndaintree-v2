@@ -40,4 +40,8 @@ router.beforeEach((to, from) => {
   document.querySelector('#app').scrollTop = 0
 })
 
+router.afterEach((to)=>{
+  document.title = to.name+' - The Barn Daintree Holiday House'
+})
+
 export default router;

@@ -87,7 +87,7 @@ function openUrl(url) {
       <div class="section no-height alt-color">
         <div class="content">
           <div class="content-container center convinced" v-scroll-fade>
-            <h2>Conviced yet?</h2>
+            <center><h2>Conviced yet?</h2></center>
             <button @click="goToPage('booking')" class="alt-color">Enquire Now</button>
           </div>
         </div>

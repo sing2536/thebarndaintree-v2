@@ -92,8 +92,7 @@ onMounted(()=>{
         </ul>
         <br /><br /><br />
 
-        <h2>Calendar</h2>
-        <p>Please check our availability using the calendar below.</p>
+        <h2>Availability</h2>
         <div class="legend">
           <div class="red-block"></div><p>Red blocks are unavailable.</p>
         </div>

@@ -14,11 +14,9 @@ function imageLoadCheck() {
   let img = new Image()
   img.src = imagePath()
   img.onload = () => {
-    setTimeout(() => {
-      loading.value = false
-      store.$patch({headerLoading: false})
-      emit('loaded')
-    }, 500);
+    loading.value = false
+    store.$patch({headerLoading: false})
+    emit('loaded')
   }
   if (img.complete) img.onload();
 }

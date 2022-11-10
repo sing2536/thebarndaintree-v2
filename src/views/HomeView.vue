@@ -8,6 +8,12 @@ import 'swiper/css/pagination'
 import 'swiper/css'
 import Section from '@/components/Section.vue'
 
+//icons
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+library.add(faChevronDown)
+
 const swiperModules = reactive([Navigation, Pagination])
 const router = useRouter()
 const reviewBreakpoints = reactive({
@@ -69,7 +75,11 @@ function goToPage(p) {
         </div>
       </div>
     </div>
+    <div class="slide-indicator">
+      <font-awesome-icon icon="fa-solid fa-chevron-down" />
+    </div>
   </Section>
+
 
   <div class="section image-2">
     <div class="content center">
@@ -133,6 +143,27 @@ function goToPage(p) {
 
 :root {
   --swiper-theme-color: black;
+}
+
+.slide-indicator {
+  position: absolute;
+  font-size: 3em;
+  width: 100%;
+  left: 50%;
+  bottom: 15%;
+  animation : sliding 2s infinite;
+}
+
+@keyframes sliding {
+  0% {
+      transform : translateY(0px);
+  }
+  70% {
+    transform : translateY(30px);
+  }
+  100% {
+    transform : translateY(0px);
+  }
 }
 
 .swiper {

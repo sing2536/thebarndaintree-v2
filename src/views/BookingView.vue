@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import '@/assets/jquery.min.js'
 import '@/assets/calendar/bootstrap-year-calendar.js'
 import axios from 'axios'
@@ -13,9 +13,14 @@ import { faGift } from '@fortawesome/free-solid-svg-icons'
 library.add(faGift)
 
 const store = storeIndex()
+const calendarLoaded = ref(false)
 
 function getCalendar() {
-  axios('/portal/public/api/extcalendar').then((r)=> handleData(r.data[0]))
+  axios('/portal/public/api/extcalendar')
+  .then((r)=>{
+    handleData(r.data[0])
+    calendarLoaded.value = true
+  })
 }
 
 function handleData(a){
@@ -97,7 +102,8 @@ onMounted(()=>{
           <div class="red-block"></div><p>Red blocks are unavailable.</p>
         </div>
         <br />
-        <div class="calendar"></div>
+        <div v-if="!calendarLoaded" class="loader"></div>
+        <div v-else class="calendar"></div>
 
       </div>
     </div>
@@ -107,6 +113,10 @@ onMounted(()=>{
 
 <style lang="less" scoped>
 @import '@/assets/section.less';
+
+.loader {
+  border-left-color: var(--text-alt);
+}
 
 .special-offer {
   background: var(--red);

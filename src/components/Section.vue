@@ -44,6 +44,10 @@ onMounted(()=>{
 
 <style lang="less" scoped>
 @import '@/assets/section.less';
+.loader {
+  margin-top: 200px;
+}
+  
 .fade {
   position: absolute;
   top: 0;
@@ -59,48 +63,6 @@ onMounted(()=>{
 
 .image {
   background-color: linear-gradient(rgba(0, 0, 0, 0.46),rgba(0, 0, 0, 0.48));
-}
-
-.loader-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.loader,
-.loader:after {
-  border-radius: 50%;
-  width: 5em;
-  height: 5em;
-}
-.loader {
-  margin: auto;
-  margin-top: 200px;
-  font-size: 10px;
-  position: relative;
-  text-indent: -9999em;
-  border-top: 0.5em solid rgba(0, 0, 0, 0.2);
-  border-right: 0.5em solid rgba(0, 0, 0, 0.2);
-  border-bottom: 0.5em solid rgba(0, 0, 0, 0.2);
-  border-left: 0.5em solid var(--text);
-  transform: translateZ(0);
-  animation: load8 .5s infinite linear;
-}
-@-webkit-keyframes load8 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes load8 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 .v-enter-active,

@@ -102,7 +102,10 @@ onMounted(()=>{
           <div class="red-block"></div><p>Red blocks are unavailable.</p>
         </div>
         <br />
-        <div v-if="!calendarLoaded" class="loader"></div>
+        <div v-if="!calendarLoaded" class="calendar-loader">
+          <div class="loader"></div>
+          <p>One moment...</p>
+        </div>
         <div v-show="calendarLoaded" class="calendar"></div>
 
       </div>
@@ -113,6 +116,13 @@ onMounted(()=>{
 
 <style lang="less" scoped>
 @import '@/assets/section.less';
+
+.calendar-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
 
 .loader {
   border-left-color: var(--text-alt);

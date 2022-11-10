@@ -18,8 +18,8 @@ const calendarLoaded = ref(false)
 function getCalendar() {
   axios('/portal/public/api/extcalendar')
   .then((r)=>{
-    handleData(r.data[0])
     calendarLoaded.value = true
+    handleData(r.data[0])
   })
 }
 
@@ -103,7 +103,7 @@ onMounted(()=>{
         </div>
         <br />
         <div v-if="!calendarLoaded" class="loader"></div>
-        <div v-else class="calendar"></div>
+        <div v-show="calendarLoaded" class="calendar"></div>
 
       </div>
     </div>

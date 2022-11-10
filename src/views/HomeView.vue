@@ -149,8 +149,8 @@ function goToPage(p) {
   position: absolute;
   font-size: 3em;
   width: 100%;
-  left: 50%;
-  bottom: 15%;
+  left: 49%;
+  bottom: 18%;
   animation : sliding 2s infinite;
 }
 

@@ -9,8 +9,8 @@ import storeIndex from '@/stores/index'
 //icons
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faGift } from '@fortawesome/free-solid-svg-icons'
-library.add(faGift)
+import { faGift, faEnvelope, faDollarSign, faBank } from '@fortawesome/free-solid-svg-icons'
+library.add(faGift, faEnvelope, faDollarSign, faBank)
 
 const store = storeIndex()
 const calendarLoaded = ref(false)
@@ -59,7 +59,7 @@ onMounted(()=>{
     <div class="content">
       <div class="content-container">
 
-        <div class="title">
+        <div class="heading center">
           <font-awesome-icon icon="fa-solid fa-gift" />
           <h3>Limited Time Offer</h3>
         </div>
@@ -74,7 +74,10 @@ onMounted(()=>{
     <div class="content">
       <div class="content-container">
 
-        <h3>Enquire</h3>
+        <div class="heading">
+          <font-awesome-icon icon="fa-solid fa-envelope" />
+          <h3>Enquire</h3>
+        </div>
         <p>
           To make an enquiry or booking, please contact us using below details.<br />
         </p>
@@ -84,14 +87,20 @@ onMounted(()=>{
           <br /><br /><br />
         </p>
 
-        <h3>Prices per night</h3>
+        <div class="heading">
+          <font-awesome-icon icon="fa-solid fa-dollar-sign" />
+          <h3>Prices per night</h3>
+        </div>
         <ul>
           <li>Base rate for 2 guests is $480</li>
           <li>Extra $95 for adults and $70 for children, per person, per night</li>
         </ul>
         <br /><br /><br />
 
-        <h3>Payment method</h3>
+        <div class="heading">
+          <font-awesome-icon icon="fa-solid fa-bank" />
+          <h3>Payment method</h3>
+        </div>
         <ul>
           <li>Direct Bank Transfer</li>
         </ul>
@@ -116,6 +125,25 @@ onMounted(()=>{
 
 <style lang="less" scoped>
 @import '@/assets/section.less';
+
+.heading {
+  display: flex;
+  align-items: center;
+  padding-bottom: 14px;
+  gap: 20px;
+
+  &.center {
+    justify-content: center;
+  }
+
+  svg {
+    font-size: 2.6em;
+  }
+
+  h3 {
+    padding: 0;
+  }
+}
 
 .calendar-loader {
   display: flex;

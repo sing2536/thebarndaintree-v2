@@ -1,20 +1,26 @@
-import { createApp } from "vue";
-import { createPinia } from "pinia";
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 
-import App from "./App.vue";
-import router from "./router";
+import App from './App.vue'
+import router from './router'
+import fetchInterceptor from './mixins/fetchInterceptor'
+import './assets/css/base.less'
+import './assets/css/loader.less'
+import tooltip from './mixins/tooltip-vue3'
+import focus from './mixins/focus'
+import VueAwesomePaginate from "vue-awesome-paginate";
+import "vue-awesome-paginate/dist/style.css";
+import './assets/css/pagination.less'
 
-import "./assets/base.less";
-import scrollFade from './plugins/scroll-fade.js'
-import vClickOutside from "click-outside-vue3"
-import VueLazyLoad from 'vue3-lazyload'
 
-const app = createApp(App);
+const app = createApp(App)
 
-app.use(createPinia());
-app.use(router);
-app.use(scrollFade)
-app.use(vClickOutside)
-app.use(VueLazyLoad)
+app.use(createPinia())
+app.use(router)
+app.use(tooltip)
+app.use(focus)
+app.use(VueAwesomePaginate)
 
-app.mount("#app");
+fetchInterceptor()
+
+app.mount('#app')

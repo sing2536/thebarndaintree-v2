@@ -28,11 +28,3 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: './'
           local-dir: 'dist/'
-
-      - name: Restart express server
-        uses: appleboy/ssh-action@v0.1.6
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          script: pm2 restart myguests-portal

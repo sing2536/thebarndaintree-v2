@@ -1,60 +1,47 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import LoginView from '../views/LoginView.vue'
-import BlankView from '../views/BlankView.vue'
-import SignupView from '../views/SignupView.vue'
-import PasswordResetView from '../views/PasswordResetView.vue'
-import PasswordResetInvalidView from '../views/PasswordResetInvalidView.vue'
-import PasswordRecoveryView from '../views/PasswordRecoveryView.vue'
-import PropertiesView from '../views/PropertiesView.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
+import storeIndex from '@/stores/index'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory('/'),
   routes: [
     {
-      path: '/',
-      name: 'home',
+      path: "/",
+      name: "Home",
       component: HomeView,
     },
     {
-      path: '/signin',
-      name: 'login',
-      component: LoginView,
+      path: "/gallery",
+      name: "Gallery",
+      component: () => import("../views/GalleryView.vue"),
     },
     {
-      path: '/signup',
-      name: 'signup',
-      component: SignupView,
+      path: "/expect",
+      name: "What to Expect",
+      component: () => import("../views/ExpectView.vue"),
     },
     {
-      path: '/password-recovery',
-      name: 'password-recovery',
-      component: PasswordRecoveryView,
+      path: "/booking",
+      name: "Booking",
+      component: () => import("../views/BookingView.vue"),
     },
     {
-      path: '/password-reset',
-      name: 'password-reset',
-      component: PasswordResetView,
-    },
-    {
-      path: '/password-reset-invalid',
-      name: 'password-reset-invalid',
-      component: PasswordResetInvalidView,
-    },
-    {
-      path: '/properties',
-      name: 'properties',
-      component: PropertiesView,
-    },
-    {
-      path: '/blank',
-      name: 'blank',
-      component: BlankView,
+      path: '/:pathMatch(.*)*',
+      redirect: '/'
     },
   ],
-  scrollBehavior() {
-    return { top: 0 }
-  },
+});
+
+router.beforeEach((to, from) => {
+  const store = storeIndex()
+  store.sideBarActive = false
+  store.headerLoading = true
+
+  document.querySelector('#app').scrollTop = 0
 })
 
-export default router
+router.afterEach((to)=>{
+  document.title = to.name+' - The Barn Daintree Holiday House'
+})
+
+export default router;

@@ -1,7 +1,5 @@
 <script setup>
 import { onMounted, ref } from 'vue'
-import '@/assets/jquery.min.js'
-import '@/assets/calendar/bootstrap-year-calendar.js'
 import axios from 'axios'
 import Section from '@/components/Section.vue'
 import storeIndex from '@/stores/index'
@@ -13,36 +11,6 @@ import { faGift, faEnvelope, faDollarSign, faBank } from '@fortawesome/free-soli
 library.add(faGift, faEnvelope, faDollarSign, faBank)
 
 const store = storeIndex()
-const calendarLoaded = ref(false)
-
-function getCalendar() {
-  axios('/portal/public/api/extcalendar')
-  .then((r)=>{
-    calendarLoaded.value = true
-    handleData(r.data[0])
-  })
-}
-
-function handleData(a){
-  for (var i = 0; i < a.length; i++) {
-    a[i].checkIn = cleanDate(a[i].checkIn);
-    a[i].checkOut = cleanDate(a[i].checkOut);
-    a[i].color = "var(--red)";
-  };
-
-  $('.calendar').calendar({startYear: (new Date().getFullYear()), alwaysHalfDay: true, style: 'background'}).setDataSource(a)
-}
-
-function cleanDate(a){
-  return new Date(a.substring(0,4), a.substring(5,7)-1, a.substring(8,10));
-}
-
-onMounted(()=>{
-  $('.calendar').calendar()
-  setTimeout(() => {
-    getCalendar()
-  }, 2000);
-})
 </script>
 
 <template>
@@ -111,12 +79,7 @@ onMounted(()=>{
           <div class="red-block"></div><p>Red blocks are unavailable.</p>
         </div>
         <br />
-        <div v-if="!calendarLoaded" class="calendar-loader">
-          <div class="loader"></div>
-          <p>One moment...</p>
-        </div>
-        <div v-show="calendarLoaded" class="calendar"></div>
-
+        <iframe id="myguestsPublicCalendar" src="https://myguests.app/public-calendars/?token=10d9a07c0af42d4cd6275ebe44f89c95621073537a917bac530c9a46762095ec" frameborder="0" width="100%" height="460px"></iframe>
       </div>
     </div>
   </div>
@@ -203,8 +166,4 @@ h3 {
 .image-1 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)) , url('@/assets/images/8.jpg');
 }
-</style>
-
-<style>
-@import '@/assets/calendar/bootstrap-year-calendar.css';
 </style>

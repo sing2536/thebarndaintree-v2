@@ -9,5 +9,5 @@ import Notification from "./components/Notification.vue";
   <Nav />
   <RouterView />
   <Footer />
-  <Notification />
+  <!-- <Notification /> -->
 </template>

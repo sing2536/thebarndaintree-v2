@@ -7,8 +7,8 @@ import storeIndex from '@/stores/index'
 //icons
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faGift, faEnvelope, faDollarSign, faBank } from '@fortawesome/free-solid-svg-icons'
-library.add(faGift, faEnvelope, faDollarSign, faBank)
+import { faGift, faEnvelope, faDollarSign, faBank, faRotateLeft } from '@fortawesome/free-solid-svg-icons'
+library.add(faGift, faEnvelope, faDollarSign, faBank, faRotateLeft)
 
 const store = storeIndex()
 </script>
@@ -23,7 +23,7 @@ const store = storeIndex()
     </div>
   </Section>
 
-  <div v-show="!store.headerLoading" class="section alt-color no-height special-offer">
+  <!-- <div v-show="!store.headerLoading" class="section alt-color no-height special-offer">
     <div class="content">
       <div class="content-container">
 
@@ -36,7 +36,7 @@ const store = storeIndex()
 
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div v-show="!store.headerLoading" class="section alt-color" style="height: unset">
     <div class="content">
@@ -52,8 +52,8 @@ const store = storeIndex()
         <p>
           Mobile: <a href="tel:0459499192">0459 499 192</a><br />
           Email: <a href="mailto:thebarndaintree@hotmail.com" target="_blank">thebarndaintree@hotmail.com</a>
-          <br /><br /><br />
         </p>
+        <br /><br /><br />
 
         <div class="heading">
           <font-awesome-icon icon="fa-solid fa-dollar-sign" />
@@ -71,6 +71,17 @@ const store = storeIndex()
         </div>
         <ul>
           <li>Direct Bank Transfer</li>
+        </ul>
+        <br /><br /><br />
+
+        <div class="heading">
+          <font-awesome-icon icon="fa-solid fa-rotate-left" />
+          <h3>Refund Policy</h3>
+        </div>
+        <ul>
+          <li>4 weeks notice 80% refund of the total amount</li>
+          <li>less than 4 weeks notice 50%  refund of the total amount</li>
+          <li>less than 48 hours notice no refund</li>
         </ul>
         <br /><br /><br />
 

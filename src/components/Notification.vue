@@ -120,4 +120,17 @@ P {
     transform: translate(0, 270px);
     transition-delay: unset;
 }
+
+@media (max-width: 1000px) {
+    .content {
+        text-align: left;
+        padding: 20px 20px;
+    }
+
+    .button-container {
+        .button {
+            padding: 10px 20px 10px 10px;
+        }
+    }
+}
 </style>

@@ -10,7 +10,7 @@ library.add(faXmark)
 
 const router = useRouter()
 const notificationActive = ref(false)
-const specialOfferAckName = "bookingUnavailableNotification"
+const specialOfferAckName = "bookingUnavailableNotification2"
 
 function notificationClose() {
     notificationActive.value = false
@@ -50,14 +50,14 @@ watch(router.currentRoute, () => bookingUnavailableHandler())
     <transition appear>
         <div v-if="notificationActive" class="container">
             <div class="content">
-                <div class="title">
-                    Booking Availability Starting August 2024
-                </div>
+                <div class="title">Temporary Booking Pause</div>
                 <p>
-                    We're currently accepting booking enquiries for dates
-                    starting in August 2024 and onwards. Thank you!
+                    We're sorry, but we're taking a short break from accepting
+                    bookings. Please check back in August for updates. Thank you
+                    for your understanding!
                 </p>
             </div>
+
             <!-- <div class="content">
                 <div class="title">Get 10% off when you stay between now and end of March 2023!</div>
                 <p>Offer only available specifically for booking dates that are before end of March 2023.</p>

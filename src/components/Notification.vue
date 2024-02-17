@@ -1,16 +1,16 @@
 <script setup>
-import { ref, watch } from 'vue';
-import { useRouter } from 'vue-router'
+import { ref, watch } from "vue"
+import { useRouter } from "vue-router"
 
 //icons
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
+import { faXmark } from "@fortawesome/free-solid-svg-icons"
 library.add(faXmark)
 
 const router = useRouter()
 const notificationActive = ref(false)
-const specialOfferAckName = 'specialOfferAck2'
+const specialOfferAckName = "bookingUnavailableNotification"
 
 function notificationClose() {
     notificationActive.value = false
@@ -19,35 +19,55 @@ function notificationClose() {
 
 function specialOfferHandler() {
     //skip for booking page as they may already have notification
-    if (router.currentRoute.value.path == '/booking') return notificationActive.value = false
+    if (router.currentRoute.value.path == "/booking")
+        return (notificationActive.value = false)
 
     let ack = localStorage.getItem(specialOfferAckName)
     if (ack) {
         let ackTime = parseInt(localStorage.getItem(specialOfferAckName))
-        if (Date.now()-ackTime > 259200000 == false) return
+        if (Date.now() - ackTime > 259200000 == false) return
     }
     notificationActive.value = true
 }
 
-watch(router.currentRoute, () => specialOfferHandler())
+function bookingUnavailableHandler() {
+    //always show if on booking page
+    if (router.currentRoute.value.path == "/booking")
+        return (notificationActive.value = true)
 
+    let ack = localStorage.getItem(specialOfferAckName)
+    if (ack) {
+        let ackTime = parseInt(localStorage.getItem(specialOfferAckName))
+        if (Date.now() - ackTime > 172800000 == false) return
+    }
+    notificationActive.value = true
+}
+
+watch(router.currentRoute, () => bookingUnavailableHandler())
 </script>
 
 <template>
     <transition appear>
         <div v-if="notificationActive" class="container">
-
             <div class="content">
+                <div class="title">
+                    Booking Availability Starting August 2024
+                </div>
+                <p>
+                    We're currently accepting booking enquiries for dates
+                    starting in August 2024 and onwards. Thank you!
+                </p>
+            </div>
+            <!-- <div class="content">
                 <div class="title">Get 10% off when you stay between now and end of March 2023!</div>
                 <p>Offer only available specifically for booking dates that are before end of March 2023.</p>
-            </div>
+            </div> -->
 
             <div class="button-container">
                 <div class="button" @click="notificationClose()">
                     <font-awesome-icon icon="fa-solid fa-xmark" />
                 </div>
             </div>
-
         </div>
     </transition>
 </template>
@@ -92,7 +112,7 @@ P {
 .v-leave-active {
     transition: transform 0.5s ease;
     transform: translate(0);
-    transition-delay: 2s
+    transition-delay: 2s;
 }
 
 .v-enter-from,

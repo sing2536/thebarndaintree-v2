@@ -43,7 +43,7 @@ function bookingUnavailableHandler() {
     notificationActive.value = true
 }
 
-watch(router.currentRoute, () => bookingUnavailableHandler())
+// watch(router.currentRoute, () => bookingUnavailableHandler())
 </script>
 
 <template>

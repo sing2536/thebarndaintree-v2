@@ -85,12 +85,12 @@ function goToPage(p) {
                     <h2>The Barn</h2>
                     <p>
                         A wonderful place for your next holiday in the Daintree
-                        rainforest. The Barn is situated on the side of the
-                        mountain bordering the world heritage national park,
-                        boasting unending views of the coral sea with the
-                        rainforest meeting the reef right in front of you, this
-                        is truly a place to unwind, relax, and forget about
-                        things for a while.
+                        Rainforest. The Barn is situated on the mountainside
+                        bordering the World Heritage National Park, boasting
+                        endless views of the Coral Sea. With the rainforest
+                        meeting the reef right before your eyes, this is truly a
+                        place to unwind, relax, and forget about your worries
+                        for a while.
                     </p>
                     <div>
                         <button @click="goToPage('expect')">

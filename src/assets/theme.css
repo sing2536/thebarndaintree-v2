@@ -1,18 +1,19 @@
 :root {
-  --text: white;
-  --text2: grey;
-  --text-alt: #23272a;
-  --red: #ff2a2a;
-  --page-max-width: 1300px;
-  --page-margin: 0 100px;
-  --small-screen-width: 1000px;
+    --text: white;
+    --text2: grey;
+    --text-alt: #23272a;
+    --red: #ff2a2a;
+    --page-max-width: 1300px;
+    --page-margin: 0 100px;
+    --small-screen-width: 1000px;
+    --grey-shade-1: #f9f9f9;
 
-  --swiper-theme-color: #23272a;
-  --swiper-pagination-bullet-inactive-color: grey;
+    --swiper-theme-color: #23272a;
+    --swiper-pagination-bullet-inactive-color: grey;
 }
 
 @media (max-width: 1000px) {
-  :root {
-    --page-margin: 0 30px;
-  }
+    :root {
+        --page-margin: 0 30px;
+    }
 }

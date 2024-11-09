@@ -107,12 +107,9 @@ function goToPage(p) {
             <div class="content-container" v-scroll-fade>
                 <h2>Main Features</h2>
                 <ul>
+                    <li>3 Ensuite bedrooms with king size beds</li>
                     <li>
-                        3 Ensuite bedrooms, 1 king and 2 queens (extra beds
-                        available on request)
-                    </li>
-                    <li>
-                        Accommodate up to 8 guests (for more please contact us)
+                        Accommodate up to 6 guests (for more please contact us)
                     </li>
                     <li>
                         Fantastic view of the ocean and rainforest across all 3

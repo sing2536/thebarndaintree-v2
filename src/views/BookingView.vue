@@ -112,8 +112,8 @@ const store = storeIndex()
                 <div class="booking-alert">
                     <p>
                         The Barn is currently on the market. While the property
-                        remains unsold we are able to continue taking bookings 3
-                        months in advance from today's date.
+                        remains unsold we are able to continue taking bookings
+                        for up to 3 months from today's date.
                     </p>
                 </div>
                 <div class="legend">

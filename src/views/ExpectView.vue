@@ -16,7 +16,7 @@ function openUrl(url) {
 </script>
 
 <template>
-    <Section header image="2.jpg">
+    <Section header image="1-2.jpg">
         <div class="content bottom">
             <div class="content-container" v-scroll-fade>
                 <h2>What to Expect</h2>

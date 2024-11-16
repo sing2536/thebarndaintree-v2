@@ -228,13 +228,21 @@ function goToPage(p) {
 }
 
 .image-2 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.42)),
-        url("@/assets/images/2.jpg");
+    background-image: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.5)
+        ),
+        url("@/assets/images/11.jpg");
 }
 
 .image-3 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.32)),
-        url("@/assets/images/3.jpg");
+    background-image: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.1)
+        ),
+        url("@/assets/images/4.jpg");
 }
 
 @media (max-width: 1000px) {

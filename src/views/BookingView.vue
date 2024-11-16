@@ -20,7 +20,7 @@ const store = storeIndex()
 </script>
 
 <template>
-    <Section header image="8.jpg">
+    <Section header image="4.jpg">
         <div class="content bottom">
             <div class="content-container" v-scroll-fade>
                 <h2>Booking</h2>

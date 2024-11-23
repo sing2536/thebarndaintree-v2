@@ -39,11 +39,11 @@ function openUrl(url) {
                         As long as power is used responsibly, The Barn can
                         easily sustain itself throughout day and night.
                         <br /><br />
-                        While The Barn has a landline, mobile phone signal and
-                        internet are currently unavailable. However, Wi-Fi can
-                        be easily accessed at local restaurants for a small fee,
-                        and 3G phone signals can be found at the Alexandra Range
-                        Lookout, about a 10 minute drive away.
+                        The Barn doesn't have a landline, but does have internet
+                        access so you can use Wi-Fi calling. Mobile reception
+                        can be patchy but generally works well from the top
+                        verandah. We offer TV reception via a satellite dish,
+                        and Netflix is also available for your entertainment.
                         <br /><br />
                         It's worth noting that The Barn is designed to be open
                         to nature. Its solar passive design naturally keeps the
@@ -56,13 +56,12 @@ function openUrl(url) {
                         three-story pole house with 30-foot ceilings and glass
                         walls on three sides will truly take your breath away.
                         <br /><br />
-                        There are 3 bedrooms: one on the top floor with a
-                        king-size bed, and two on the ground floor with
-                        queen-size beds. We can accommodate up to 8 guests by
-                        setting up extra beds around the house and/or in the
-                        bedrooms. We're also willing to accommodate more guests,
-                        so please feel free to contact us for larger group
-                        arrangements.
+                        There are 3 bedrooms with king size beds, one on the top
+                        floor, and two on the ground floor. Additionally, we can
+                        set up 2 single beds on the mezzanine floor which is
+                        adjacent to the master bedroom, perfect for children. We
+                        can accommodate up to 8 guests depending on the sleeping
+                        arrangements, please contact us for details.
                     </p>
                 </div>
             </div>

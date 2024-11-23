@@ -75,20 +75,18 @@ const store = storeIndex()
 
                 <div class="heading">
                     <font-awesome-icon icon="fa-solid fa-dollar-sign" />
-                    <h3>Prices per night</h3>
+                    <h3>Prices Per Night</h3>
                 </div>
                 <ul>
-                    <li>Base rate for 2 guests is $480</li>
-                    <li>
-                        Extra $95 for adults and $70 for children, per person,
-                        per night
-                    </li>
+                    <li>Base rate for 2 guests is $400</li>
+                    <li>Extra rooms are $150 per room, per night</li>
+                    <li>For children please contact us for details</li>
                 </ul>
                 <br /><br /><br />
 
                 <div class="heading">
                     <font-awesome-icon icon="fa-solid fa-bank" />
-                    <h3>Payment method</h3>
+                    <h3>Payment Method</h3>
                 </div>
                 <ul>
                     <li>Direct Bank Transfer</li>
@@ -100,11 +98,10 @@ const store = storeIndex()
                     <h3>Refund Policy</h3>
                 </div>
                 <ul>
-                    <li>4 weeks notice 80% refund of the total amount</li>
                     <li>
-                        less than 4 weeks notice 50% refund of the total amount
+                        Non refundable 20% deposit with the rest payable 3 weeks
+                        before arrival
                     </li>
-                    <li>less than 48 hours notice no refund</li>
                 </ul>
                 <br /><br /><br />
 

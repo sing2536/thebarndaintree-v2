@@ -28,7 +28,7 @@ const store = storeIndex()
         </div>
     </Section>
 
-    <!-- <div
+    <div
         v-show="!store.headerLoading"
         class="section alt-color no-height special-offer"
     >
@@ -36,18 +36,15 @@ const store = storeIndex()
             <div class="content-container">
                 <div class="heading center">
                     <font-awesome-icon icon="fa-solid fa-gift" />
-                    <h3>Limited Time Offer</h3>
+                    <h3>Limited Time Offer: Save $50 a night!</h3>
                 </div>
                 <p>
-                    Get 10% off when you stay between now and end of March 2023!
+                    Book now and enjoy our reduced base rate of $400. This offer
+                    is only available until April 2025. Don't miss out!
                 </p>
-                <h4>
-                    Offer only available specifically for booking dates that are
-                    before end of March 2023.
-                </h4>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <div
         v-show="!store.headerLoading"
@@ -77,8 +74,15 @@ const store = storeIndex()
                     <font-awesome-icon icon="fa-solid fa-dollar-sign" />
                     <h3>Prices Per Night</h3>
                 </div>
+                <div class="booking-alert info" style="margin-bottom: 14px">
+                    <p>
+                        Discounts may be available based on the length of your
+                        stay and the number of guests. Please contact us for
+                        quote!
+                    </p>
+                </div>
                 <ul>
-                    <li>Base rate for 2 guests is $400</li>
+                    <li>Base rate for 2 guests is $450</li>
                     <li>Extra rooms are $150 per room, per night</li>
                     <li>For children please contact us for details</li>
                 </ul>
@@ -195,6 +199,10 @@ const store = storeIndex()
     padding: 14px;
     border-left: 8px solid var(--red);
     margin-top: 14px;
+
+    &.info {
+        border-color: var(--blue);
+    }
 }
 
 .legend {

@@ -9,8 +9,8 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons"
 library.add(faXmark)
 
 const router = useRouter()
-const notificationActive = ref(false)
-const specialOfferAckName = "bookingUnavailableNotification2"
+const notificationActive = ref(true)
+const specialOfferAckName = "bookingSpecialApril2025"
 
 function notificationClose() {
     notificationActive.value = false
@@ -43,25 +43,28 @@ function bookingUnavailableHandler() {
     notificationActive.value = true
 }
 
-// watch(router.currentRoute, () => bookingUnavailableHandler())
+watch(router.currentRoute, () => specialOfferHandler())
 </script>
 
 <template>
     <transition appear>
         <div v-if="notificationActive" class="container">
-            <div class="content">
+            <!-- <div class="content">
                 <div class="title">Temporary Booking Pause</div>
                 <p>
                     We're sorry, but we're taking a short break from accepting
                     bookings. Please check back in August for updates. Thank you
                     for your understanding!
                 </p>
-            </div>
-
-            <!-- <div class="content">
-                <div class="title">Get 10% off when you stay between now and end of March 2023!</div>
-                <p>Offer only available specifically for booking dates that are before end of March 2023.</p>
             </div> -->
+
+            <div class="content">
+                <div class="title">Limited Time Offer: Save $50 a night!</div>
+                <p>
+                    Book now and enjoy our reduced base rate of $400. This offer
+                    is only available until April 2025. Don't miss out!
+                </p>
+            </div>
 
             <div class="button-container">
                 <div class="button" @click="notificationClose()">

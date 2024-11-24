@@ -77,7 +77,7 @@ const store = storeIndex()
                 <div class="booking-alert info" style="margin-bottom: 14px">
                     <p>
                         Discounts may be available based on the length of your
-                        stay and the number of guests. Please contact us for
+                        stay and the number of guests. Please contact us for a
                         quote!
                     </p>
                 </div>

@@ -119,21 +119,17 @@ function openUrl(url) {
                     <div class="right" v-scroll-fade>
                         <h2>Getting Here</h2>
                         <p>
-                            The Barn is located in the Daintree Rainforest at
+                            The Barn is nestled in the Daintree Rainforest at
                             Cow Bay. From Cairns, it's approximately 120km or a
-                            2 hour drive. The map below shows the route from
-                            Cairns to the location of the house.
+                            2-hour drive. The map below shows the scenic route
+                            from Cairns to our location.
                             <br /><br />
-                            You will need to cross the Daintree River using a
-                            car ferry, which requires a fee for each crossing.
-                            We can provide you with a direction guidebook to
-                            help you find your way to The Barn, as well as ferry
-                            tickets that can be mailed to you free of charge.
+                            Your journey includes crossing the Daintree River via
+                            car ferry, which requires a small fee per crossing.
                             <br /><br />
-                            If you're coming from Cairns, we recommend stopping
-                            at Woolworths in Mossman town, which is about an
-                            hour's drive from the house, to purchase groceries
-                            before arriving.
+                            If you're traveling from Cairns, we recommend stopping
+                            at Woolworths in Mossman town (about an hour's drive
+                            from The Barn) to stock up on groceries before your arrival.
                         </p>
                     </div>
                 </div>
